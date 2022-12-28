@@ -101,20 +101,15 @@ public class SurveyWithDB {
         return statistic_list;
     }
 
-    /**
-     * 유저정보를 HashMap에 담아
-     * ArrayList로 리턴
-     * 
-     * @throws SQLException
-     */
+    // 사용자 정보의 집합을 반환
     public ArrayList getUsersInfo() throws SQLException {
 
         Commons commons = new Commons();
         Statement statement = commons.getStatement();
         String query = "SELECT * FROM USERS";
         ResultSet resultSet = statement.executeQuery(query);
-
         ArrayList<HashMap> usersInfo = new ArrayList<>();
+
         while (resultSet.next()) {
             HashMap<String, String> user = new HashMap<>();
             user.put("USER_ID", resultSet.getString("USER_ID"));
@@ -133,6 +128,28 @@ public class SurveyWithDB {
 
         return usersInfo;
 
+    }
+
+    public ArrayList getAdminInfo() throws SQLException {
+        Commons commons = new Commons();
+        Statement statement = commons.getStatement();
+        String query = "SELECT * FROM ADMIN";
+        ResultSet resultSet = statement.executeQuery(query);
+        ArrayList<HashMap> adminInfo = new ArrayList<>();
+
+        while (resultSet.next()) {
+            HashMap<String, String> admin = new HashMap<>();
+            admin.put("ADMIN_ID", resultSet.getString("ADMIN_ID"));
+            admin.put("ID", resultSet.getString("ID"));
+            admin.put("PW", resultSet.getString("PW"));
+            adminInfo.add(admin);
+        }
+
+        return adminInfo;
+
+    }
+
+    public class getAdminInfo {
     }
 
 }
