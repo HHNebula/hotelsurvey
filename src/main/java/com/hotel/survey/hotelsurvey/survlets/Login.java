@@ -22,7 +22,7 @@ public class Login extends HttpServlet {
         String password = request.getParameter("password");
         SurveyWithDB surveyWithDB = new SurveyWithDB();
 
-        if (surveyWithDB.check(email, password)) {
+        if (surveyWithDB.isUser(email, password)) {
 
             HttpSession session = request.getSession();
             session.setAttribute("email", email);
