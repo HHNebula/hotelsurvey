@@ -100,4 +100,39 @@ public class SurveyWithDB {
         }
         return statistic_list;
     }
+
+    /**
+     * 유저정보를 HashMap에 담아
+     * ArrayList로 리턴
+     * 
+     * @throws SQLException
+     */
+    public ArrayList getUsersInfo() throws SQLException {
+
+        Commons commons = new Commons();
+        Statement statement = commons.getStatement();
+        String query = "SELECT * FROM USERS";
+        ResultSet resultSet = statement.executeQuery(query);
+
+        ArrayList<HashMap> usersInfo = new ArrayList<>();
+        while (resultSet.next()) {
+            HashMap<String, String> user = new HashMap<>();
+            user.put("USER_ID", resultSet.getString("USER_ID"));
+            user.put("EMAIL ", resultSet.getString("EMAIL"));
+            user.put("PASSWORD ", resultSet.getString("PASSWORD"));
+            user.put("FRIST_NAME ", resultSet.getString("FRIST_NAME"));
+            user.put("LAST_NAME ", resultSet.getString("LAST_NAME"));
+            user.put("TITLE_OF_HONOR ", resultSet.getString("TITLE_OF_HONOR"));
+            user.put("BIRTHDAY ", resultSet.getString("BIRTHDAY"));
+            user.put("COUNTRY ", resultSet.getString("COUNTRY"));
+            user.put("STATE ", resultSet.getString("STATE"));
+            user.put("CITY ", resultSet.getString("CITY"));
+            user.put("ADDRESS ", resultSet.getString("ADDRESS"));
+            usersInfo.add(user);
+        }
+
+        return usersInfo;
+
+    }
+
 }
