@@ -164,8 +164,4 @@ public class SurveyWithDB {
 
     }
 
-    public boolean check(String uname, String pass) {
-        return false;
-    }
-
 }
