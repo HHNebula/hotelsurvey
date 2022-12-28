@@ -8,6 +8,7 @@ import java.util.HashMap;
 
 public class SurveyWithDB {
 
+    // [GYEONG]
     public ArrayList<HashMap> getList() {
         Commons commons = new Commons();
         Statement statement = commons.getStatement();
@@ -66,28 +67,30 @@ public class SurveyWithDB {
         return bundle_list;
     }
 
+    // [GYEONG]
     public ArrayList<HashMap> getStatistics() throws SQLException {
 
         Commons commons = new Commons();
         Statement statement = commons.getStatement();
 
-        String query = " SELECT COUNT(CASE WHEN ANSWER_ID = 'A1' THEN 1 END ) AS '매우 만족', " +
-                " COUNT(CASE WHEN ANSWER_ID = 'A2' THEN 1 END ) AS '만족', " +
-                " COUNT(CASE WHEN ANSWER_ID = 'A3' THEN 1 END ) AS '보통', " +
-                " COUNT(CASE WHEN ANSWER_ID = 'A4' THEN 1 END ) AS '불만', " +
-                " COUNT(CASE WHEN ANSWER_ID = 'A5' THEN 1 END ) AS '매우 불만' " +
+        String query = " SELECT COUNT(CASE WHEN ANSWER_ID = 'A1' THEN 1 END ) AS 'VeryStisfied', " +
+                " COUNT(CASE WHEN ANSWER_ID = 'A2' THEN 1 END ) AS 'Stisfied', " +
+                " COUNT(CASE WHEN ANSWER_ID = 'A3' THEN 1 END ) AS 'Usually', " +
+                " COUNT(CASE WHEN ANSWER_ID = 'A4' THEN 1 END ) AS 'Dissatisfied', " +
+                " COUNT(CASE WHEN ANSWER_ID = 'A5' THEN 1 END ) AS 'VeryDissatisfied' " +
                 " FROM SELECTIVE_SURVEYED INNER JOIN SELECTIVE_QUESTIONS ON SELECTIVE_SURVEYED.QUESTION_ID = SELECTIVE_QUESTIONS.QUESTION_ID GROUP BY SELECTIVE_SURVEYED.QUESTION_ID ";
 
         ResultSet resultSet = statement.executeQuery(query);
         ArrayList<HashMap> statistic_list = null;
         while (resultSet.next()) {
             // 컬럼당 해쉬맵에 담기
+            statistic_list = new ArrayList<>();
             HashMap<String, Object> statistics = new HashMap<>();
-            int as1 = resultSet.getInt("매우 만족");
-            int as2 = resultSet.getInt("만족");
-            int as3 = resultSet.getInt("보통");
-            int as4 = resultSet.getInt("불만");
-            int as5 = resultSet.getInt("매우 불만");
+            int as1 = resultSet.getInt("VeryStisfied");
+            int as2 = resultSet.getInt("Stisfied");
+            int as3 = resultSet.getInt("Usually");
+            int as4 = resultSet.getInt("Dissatisfied");
+            int as5 = resultSet.getInt("VeryDissatisfied");
 
             statistics.put("VeryStisfied", as1);
             statistics.put("Stisfied", as2);
@@ -95,12 +98,15 @@ public class SurveyWithDB {
             statistics.put("Dissatisfied", as4);
             statistics.put("VeryDissatisfied", as5);
 
-            // 다시 어레이리스트에 담기
-            statistic_list = new ArrayList<>();
             statistic_list.add(statistics);
 
         }
+
+        resultSet.close();
+        statement.close();
+
         return statistic_list;
+
     }
 
     // [SOO] 사용자 정보의 집합을 반환

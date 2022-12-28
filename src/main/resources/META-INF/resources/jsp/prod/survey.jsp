@@ -40,7 +40,7 @@
 
     <!-- main -->
     <main class="mt-5 pt-5 py-sm-5 py-md-0 px-5 px-lg-5">
-        <form action="./statistics.html">
+        <form action="/statisticsServlets">
             <!-- 호텔로고 & 설문안내 -->
             <div class="card text-center align-items-center text-secondary">
                 <img class="card-img-top" src="../img/hotelimg.png" alt="Card image cap" style="width: 400px;">
@@ -114,6 +114,7 @@
             ArrayList<HashMap> answers_list = (ArrayList<HashMap>) bundles.get("answer_list"); %>
              <li class="list-group-item mb-4 pb-4">
                 <div class="btn-group">
+                <%-- 답항 출력 --%>
             <% for (int j = 0; j < answers_list.size(); j++) {
                 HashMap<String, Object> answers = (HashMap<String, Object>) answers_list.get(j);
                  int ans_order = (int) answers.get("ORDERS");
