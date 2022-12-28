@@ -81,22 +81,16 @@ public class SurveyWithDB {
                 " FROM SELECTIVE_SURVEYED INNER JOIN SELECTIVE_QUESTIONS ON SELECTIVE_SURVEYED.QUESTION_ID = SELECTIVE_QUESTIONS.QUESTION_ID GROUP BY SELECTIVE_SURVEYED.QUESTION_ID ";
 
         ResultSet resultSet = statement.executeQuery(query);
-        ArrayList<HashMap> statistic_list = null;
+        ArrayList<HashMap> statistic_list = new ArrayList<>();
         while (resultSet.next()) {
             // 컬럼당 해쉬맵에 담기
-            statistic_list = new ArrayList<>();
             HashMap<String, Object> statistics = new HashMap<>();
-            int as1 = resultSet.getInt("VeryStisfied");
-            int as2 = resultSet.getInt("Stisfied");
-            int as3 = resultSet.getInt("Usually");
-            int as4 = resultSet.getInt("Dissatisfied");
-            int as5 = resultSet.getInt("VeryDissatisfied");
 
-            statistics.put("VeryStisfied", as1);
-            statistics.put("Stisfied", as2);
-            statistics.put("Usually", as3);
-            statistics.put("Dissatisfied", as4);
-            statistics.put("VeryDissatisfied", as5);
+            statistics.put("VeryStisfied", resultSet.getInt("VeryStisfied"));
+            statistics.put("Stisfied", resultSet.getInt("Stisfied"));
+            statistics.put("Usually", resultSet.getInt("Usually"));
+            statistics.put("Dissatisfied", resultSet.getInt("Dissatisfied"));
+            statistics.put("VeryDissatisfied", resultSet.getInt("VeryDissatisfied"));
 
             statistic_list.add(statistics);
 

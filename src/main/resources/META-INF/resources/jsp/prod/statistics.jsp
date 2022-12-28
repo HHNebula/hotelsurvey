@@ -71,46 +71,83 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                    <%  ArrayList<HashMap> statistic_list = (ArrayList<HashMap>)request.getAttribute("statistic_list"); %>
+                    <% 
+                         HashMap<String, Object> statistics0 = (HashMap<String, Object> )statistic_list.get(0);
+                         int veryStisfied = (int)statistics0.get("VeryStisfied");
+                         int stisfied = (int)statistics0.get("Stisfied");
+                         int usually = (int)statistics0.get("Usually");
+                         int dissatisfied = (int)statistics0.get("Dissatisfied");
+                         int veryDissatisfied = (int)statistics0.get("VeryDissatisfied"); %>
+                         <tr>
                             <th scope="row">Accessibility</th>
-                            <td>331</td>
-                            <td>470</td>
-                            <td>484</td>
-                            <td>135</td>
-                            <td>162</td>
+                            <td><%= veryStisfied %></td>
+                            <td><%= stisfied %></td>
+                            <td><%= usually %></td>
+                            <td><%= dissatisfied %></td>
+                            <td><%= veryDissatisfied %></td>
                         </tr>
-                        <tr>
+                    <% 
+                         HashMap<String, Object> statistics1 = (HashMap<String, Object> )statistic_list.get(1);
+                         int veryStisfied1 = (int)statistics1.get("VeryStisfied");
+                         int stisfied1 = (int)statistics1.get("Stisfied");
+                         int usually1 = (int)statistics1.get("Usually");
+                         int dissatisfied1 = (int)statistics1.get("Dissatisfied");
+                         int veryDissatisfied1 = (int)statistics1.get("VeryDissatisfied"); %>
+                         <tr>
                             <th scope="row">Kindness of the staff</th>
-                            <td>395</td>
-                            <td>470</td>
-                            <td>484</td>
-                            <td>135</td>
-                            <td>148</td>
+                            <td><%= veryStisfied1 %></td>
+                            <td><%= stisfied1 %></td>
+                            <td><%= usually1 %></td>
+                            <td><%= dissatisfied1 %></td>
+                            <td><%= veryDissatisfied1 %></td>
                         </tr>
-                        <tr>
+                                            <% 
+                         HashMap<String, Object> statistics2 = (HashMap<String, Object> )statistic_list.get(2);
+                         int veryStisfied2 = (int)statistics2.get("VeryStisfied");
+                         int stisfied2 = (int)statistics2.get("Stisfied");
+                         int usually2 = (int)statistics2.get("Usually");
+                         int dissatisfied2 = (int)statistics2.get("Dissatisfied");
+                         int veryDissatisfied2 = (int)statistics2.get("VeryDissatisfied"); %>
+                         <tr>
                             <th scope="row">Hotel cleanliness</th>
-                            <td>331</td>
-                            <td>339</td>
-                            <td>237</td>
-                            <td>171</td>
-                            <td>162</td>
+                            <td><%= veryStisfied2 %></td>
+                            <td><%= stisfied2 %></td>
+                            <td><%= usually2 %></td>
+                            <td><%= dissatisfied2 %></td>
+                            <td><%= veryDissatisfied2 %></td>
                         </tr>
-                        <tr>
+                                                                    <% 
+                         HashMap<String, Object> statistics3 = (HashMap<String, Object> )statistic_list.get(3);
+                         int veryStisfied3 = (int)statistics3.get("VeryStisfied");
+                         int stisfied3 = (int)statistics3.get("Stisfied");
+                         int usually3 = (int)statistics3.get("Usually");
+                         int dissatisfied3 = (int)statistics3.get("Dissatisfied");
+                         int veryDissatisfied3 = (int)statistics3.get("VeryDissatisfied"); %>
+                         <tr>
                             <th scope="row">Food quality</th>
-                            <td>107</td>
-                            <td>470</td>
-                            <td>304</td>
-                            <td>307</td>
-                            <td>159</td>
+                            <td><%= veryStisfied3 %></td>
+                            <td><%= stisfied3 %></td>
+                            <td><%= usually3 %></td>
+                            <td><%= dissatisfied3 %></td>
+                            <td><%= veryDissatisfied3 %></td>
                         </tr>
-                        <tr>
+                                                                    <% 
+                         HashMap<String, Object> statistics4 = (HashMap<String, Object> )statistic_list.get(4);
+                         int veryStisfied4 = (int)statistics4.get("VeryStisfied");
+                         int stisfied4 = (int)statistics4.get("Stisfied");
+                         int usually4 = (int)statistics4.get("Usually");
+                         int dissatisfied4 = (int)statistics4.get("Dissatisfied");
+                         int veryDissatisfied4 = (int)statistics4.get("VeryDissatisfied"); %>
+                         <tr>
                             <th scope="row">Facilities Convenience</th>
-                            <td>410</td>
-                            <td>338</td>
-                            <td>392</td>
-                            <td>102</td>
-                            <td>104</td>
+                            <td><%= veryStisfied4 %></td>
+                            <td><%= stisfied4 %></td>
+                            <td><%= usually4 %></td>
+                            <td><%= dissatisfied4 %></td>
+                            <td><%= veryDissatisfied4 %></td>
                         </tr>
+
                     </tbody>
                 </table>
             </div>
