@@ -44,7 +44,7 @@ public class SurveyWithDB {
                     HashMap<String, Object> answer = new HashMap<>();
                     answer.put("ORDERS", resultSetAnswer.getInt("ORDERS"));
                     answer.put("ANSWER", resultSetAnswer.getString("ANSWER"));
-                    answer.put("ANSWER_ID ", resultSetAnswer.getString("ANSWER_ID"));
+                    answer.put("ANSWER_ID", resultSetAnswer.getString("ANSWER_ID"));
                     // 어레이리스트에 담기
                     answer_list.add(answer);
                 }
@@ -54,6 +54,7 @@ public class SurveyWithDB {
                 bundle.put("answer_list", answer_list);
 
                 bundle_list.add(bundle);
+
             }
             statementAnswer.close();
             resultSet.close();
@@ -61,6 +62,7 @@ public class SurveyWithDB {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
         return bundle_list;
     }
 

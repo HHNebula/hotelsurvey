@@ -32,8 +32,8 @@ public class StatisticsServlets extends HttpServlet {
         }
 
         request.setAttribute("statistic_list", statistic_list);
-
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/statistics.jsp");
+        // jsp로 보내기
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/jsp/prod/statistics.jsp");
         requestDispatcher.forward(request, response);
 
     }

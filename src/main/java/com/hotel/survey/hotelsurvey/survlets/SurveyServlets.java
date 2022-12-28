@@ -21,12 +21,14 @@ public class SurveyServlets extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         // 문항과 답항 받아오기
         SurveyWithDB surveyWithDB = new SurveyWithDB();
-        ArrayList<HashMap> bundle_list = surveyWithDB.getList();
+        ArrayList<HashMap> bundle_list = null;
+
+        bundle_list = surveyWithDB.getList();
 
         request.setAttribute("bundle_list", bundle_list);
 
         // jsp로 보내기
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/survey.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/jsp/prod/survey.jsp");
         requestDispatcher.forward(request, response);
 
     }
