@@ -103,20 +103,15 @@ public class SurveyWithDB {
         return statistic_list;
     }
 
-    /**
-     * 유저정보를 HashMap에 담아
-     * ArrayList로 리턴
-     * 
-     * @throws SQLException
-     */
+    // [SOO] 사용자 정보의 집합을 반환
     public ArrayList getUsersInfo() throws SQLException {
 
         Commons commons = new Commons();
         Statement statement = commons.getStatement();
         String query = "SELECT * FROM USERS";
         ResultSet resultSet = statement.executeQuery(query);
-
         ArrayList<HashMap> usersInfo = new ArrayList<>();
+
         while (resultSet.next()) {
             HashMap<String, String> user = new HashMap<>();
             user.put("USER_ID", resultSet.getString("USER_ID"));
@@ -134,6 +129,40 @@ public class SurveyWithDB {
         }
 
         return usersInfo;
+
+    }
+
+    // [SOO] 어드민 정보가 정확한지 확인하여 반환
+    public boolean isAdmin(String id, String pw) {
+        try {
+            Commons commons = new Commons();
+            Statement statement = commons.getStatement();
+            String query = "SELECT * FROM Admin WHERE ID = '" + id + "'' AND PW = '" + pw + "'";
+            ResultSet resultSet = statement.executeQuery(query);
+            if (resultSet.next()) {
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    // [SOO] 사용자 로그인 정보가 정확한지 확인하여 리턴
+    public boolean isUser(String email, String password) {
+
+        try {
+            Commons commons = new Commons();
+            Statement statement = commons.getStatement();
+            String query = "SELECT * FROM USERS WHERE EMAIL = '" + email + "'' AND PASSWORD = '" + password + "'";
+            ResultSet resultSet = statement.executeQuery(query);
+            if (resultSet.next()) {
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
 
     }
 
