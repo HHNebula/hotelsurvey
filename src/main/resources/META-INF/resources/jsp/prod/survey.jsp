@@ -97,36 +97,39 @@
                             <div class="card-header">Customer Satisfaction Survey</div>
                             <div class="list-group list-group-flush text-dark fs-5">
                             <div class ="mb-3"></div>
-    <%-- ArrayList 설문 답항 불러오기 --%>
-<% ArrayList<HashMap> bundle_list = request.getAttribute("bundle_list"); %>
+            <!-- ArrayList 설문 답항 불러오기 -->
+         <% ArrayList<HashMap>bundle_list = (ArrayList<HashMap>)request.getAttribute("bundle_list");
+            for (int i = 0; i < bundle_list.size(); i++) {
+            HashMap<String, Object> bundles = bundle_list.get(i);
+            HashMap<String, Object> questions = (HashMap<String, Object>) bundles.get("question");
+            
+            //각각 변수에 담기
+            String question = (String) questions.get("QUESTION");
+            String question_ID = (String) questions.get("QUESTION_ID");
+            int order = (int) questions.get("ORDERS"); %>
+            
+            <%-- 문항 출력 --%>
+            <p class="card-text"><%= order %>. <%= question %></p>
+             <%
+            ArrayList<HashMap> answers_list = (ArrayList<HashMap>) bundles.get("answer_list"); %>
+             <li class="list-group-item mb-4 pb-4">
+                <div class="btn-group">
+            <% for (int j = 0; j < answers_list.size(); j++) {
+                HashMap<String, Object> answers = (HashMap<String, Object>) answers_list.get(j);
+                 int ans_order = (int) answers.get("ORDERS");
+                 String answer = (String) answers.get("ANSWER");
+                 String answer_ID = (String) answers.get("ANSWER_ID"); %>
 
-                                    <p class="card-text">1. 호텔을 찾아오시는 길은 편리하셨습니까?</p>
-                                <li class="list-group-item mb-4 pb-4">
-                                    <div class="btn-group">
-                                        <label class="btn btn-dark " for="traffic_Very_satisfied">
-                                            <input type="radio" name="traffic" id="traffic_Very_satisfied"
-                                                value="Very_satisfied" autocomplete="off" required> 매우만족 <br>
-                                        </label>
-                                        <label class="btn btn-dark" for="traffic_Satisfied">
-                                            <input type="radio" name="traffic" id="traffic_Satisfied" value="Satisfied"
-                                                autocomplete="off" required>
-                                            만족
-                                        </label>
-                                        <label class="btn btn-dark" for="traffic_normal">
-                                            <input type="radio" name="traffic" id="traffic_normal" value="normal"
-                                                autocomplete="off" required> 보통
-                                        </label>
-                                        <label class="btn btn-dark" for="traffic_Complained">
-                                            <input type="radio" name="traffic" id="traffic_Complained"
-                                                value="Complained" autocomplete="off" required> 불만
-                                        </label>
-                                        <label class="btn btn-dark" for="traffic_Dissatisfied">
-                                            <input type="radio" name="traffic" id="traffic_Dissatisfied"
-                                                value="Dissatisfied" autocomplete="off" required> 매우불만
-                                        </label>
-                                    </div>
-                                </li>
-                              
+                                        <label class="btn btn-dark " for="<%= question_ID %><%= answer_ID %>">
+                                            <input type="radio" name="<%= question_ID %>" id="<%= question_ID %><%= answer_ID %>"
+                                                value="<%= answer_ID %>" autocomplete="off" required><%=  answer %><br>
+                            </label>
+                        <% } %>
+                 </div>
+            </li>
+        <%   } %>
+
+                                  
                                 <!-- 주관식문항(선택) -->
                                 <li class="list-group-item">
                                     <p class="card-text">6. 고객님의 소중한 의견을 자유롭게 남겨주세요 (선택사항) <br> Please feel free to
