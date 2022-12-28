@@ -131,23 +131,19 @@ public class SurveyWithDB {
     }
 
     // [SOO] 어드민 정보가 정확한지 확인하여 반환
-    public ArrayList getAdminInfo() throws SQLException {
-        Commons commons = new Commons();
-        Statement statement = commons.getStatement();
-        String query = "SELECT * FROM ADMIN";
-        ResultSet resultSet = statement.executeQuery(query);
-        ArrayList<HashMap> adminInfo = new ArrayList<>();
-
-        while (resultSet.next()) {
-            HashMap<String, String> admin = new HashMap<>();
-            admin.put("ADMIN_ID", resultSet.getString("ADMIN_ID"));
-            admin.put("ID", resultSet.getString("ID"));
-            admin.put("PW", resultSet.getString("PW"));
-            adminInfo.add(admin);
+    public boolean isAdmin(String id, String pw) {
+        try {
+            Commons commons = new Commons();
+            Statement statement = commons.getStatement();
+            String query = "SELECT * FROM Admin WHERE ID = '" + id + "'' AND PW = '" + pw + "'";
+            ResultSet resultSet = statement.executeQuery(query);
+            if (resultSet.next()) {
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
-        return adminInfo;
-
+        return false;
     }
 
     // [SOO] 사용자 로그인 정보가 정확한지 확인하여 리턴
