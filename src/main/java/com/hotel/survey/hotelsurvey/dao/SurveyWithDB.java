@@ -79,6 +79,7 @@ public class SurveyWithDB {
         ResultSet resultSet = statement.executeQuery(query);
         ArrayList<HashMap> statistic_list = null;
         while (resultSet.next()) {
+            // 컬럼당 해쉬맵에 담기
             HashMap<String, Object> statistics = new HashMap<>();
             int as1 = resultSet.getInt("매우 만족");
             int as2 = resultSet.getInt("만족");
@@ -92,10 +93,9 @@ public class SurveyWithDB {
             statistics.put("Dissatisfied", as4);
             statistics.put("VeryDissatisfied", as5);
 
+            // 다시 어레이리스트에 담기
             statistic_list = new ArrayList<>();
             statistic_list.add(statistics);
-
-            System.out.println(as1);
 
         }
         return statistic_list;
