@@ -21,11 +21,9 @@ public class SurveyWithDB {
             ResultSet resultSet = statement.executeQuery(query);
 
             while (resultSet.next()) {
-                // 설문 문항에 맞는 설문 답항 출력
-                System.out.print(resultSet.getInt("ORDERS") + ". ");
-                System.out.println(resultSet.getString("QUESTION"));
+                // 설문 UID 변수 지정
                 String uid = resultSet.getString("QUESTION_ID");
-                // 해쉬맵에 담기
+                // 문항 해쉬맵에 담기
                 HashMap<String, Object> question = new HashMap<String, Object>();
                 question.put("ORDERS", resultSet.getInt("ORDERS"));
                 question.put("QUESTION", resultSet.getString("QUESTION"));
@@ -38,11 +36,10 @@ public class SurveyWithDB {
                         " WHERE QUESTION_ID = '" + uid + "' " +
                         " ORDER BY ORDERS";
                 ResultSet resultSetAnswer = statementAnswer.executeQuery(query);
-                // 설문 답항 출력
+
+                // 설문 답항
                 ArrayList<HashMap> answer_list = new ArrayList<HashMap>();
                 while (resultSetAnswer.next()) {
-                    System.out.print(resultSetAnswer.getInt("ORDERS") + ". ");
-                    System.out.println(resultSetAnswer.getString("ANSWER"));
                     // 해쉬맵에 담기
                     HashMap<String, Object> answer = new HashMap<>();
                     answer.put("ORDERS", resultSetAnswer.getInt("ORDERS"));
@@ -65,5 +62,42 @@ public class SurveyWithDB {
             e.printStackTrace();
         }
         return bundle_list;
+    }
+
+    public ArrayList<HashMap> getStatistics() throws SQLException {
+
+        Commons commons = new Commons();
+        Statement statement = commons.getStatement();
+
+        String query = " SELECT COUNT(CASE WHEN ANSWER_ID = 'A1' THEN 1 END ) AS '매우 만족', " +
+                " COUNT(CASE WHEN ANSWER_ID = 'A2' THEN 1 END ) AS '만족', " +
+                " COUNT(CASE WHEN ANSWER_ID = 'A3' THEN 1 END ) AS '보통', " +
+                " COUNT(CASE WHEN ANSWER_ID = 'A4' THEN 1 END ) AS '불만', " +
+                " COUNT(CASE WHEN ANSWER_ID = 'A5' THEN 1 END ) AS '매우 불만' " +
+                " FROM SELECTIVE_SURVEYED INNER JOIN SELECTIVE_QUESTIONS ON SELECTIVE_SURVEYED.QUESTION_ID = SELECTIVE_QUESTIONS.QUESTION_ID GROUP BY SELECTIVE_SURVEYED.QUESTION_ID ";
+
+        ResultSet resultSet = statement.executeQuery(query);
+        ArrayList<HashMap> statistic_list = null;
+        while (resultSet.next()) {
+            HashMap<String, Object> statistics = new HashMap<>();
+            int as1 = resultSet.getInt("매우 만족");
+            int as2 = resultSet.getInt("만족");
+            int as3 = resultSet.getInt("보통");
+            int as4 = resultSet.getInt("불만");
+            int as5 = resultSet.getInt("매우 불만");
+
+            statistics.put("VeryStisfied", as1);
+            statistics.put("Stisfied", as2);
+            statistics.put("Usually", as3);
+            statistics.put("Dissatisfied", as4);
+            statistics.put("VeryDissatisfied", as5);
+
+            statistic_list = new ArrayList<>();
+            statistic_list.add(statistics);
+
+            System.out.println(as1);
+
+        }
+        return statistic_list;
     }
 }
