@@ -101,7 +101,7 @@ public class SurveyWithDB {
         return statistic_list;
     }
 
-    // 사용자 정보의 집합을 반환
+    // [SOO] 사용자 정보의 집합을 반환
     public ArrayList getUsersInfo() throws SQLException {
 
         Commons commons = new Commons();
@@ -130,6 +130,7 @@ public class SurveyWithDB {
 
     }
 
+    // [SOO] 어드민 정보가 정확한지 확인하여 반환
     public ArrayList getAdminInfo() throws SQLException {
         Commons commons = new Commons();
         Statement statement = commons.getStatement();
@@ -149,7 +150,22 @@ public class SurveyWithDB {
 
     }
 
-    public class getAdminInfo {
+    // [SOO] 사용자 로그인 정보가 정확한지 확인하여 리턴
+    public boolean isUser(String email, String password) {
+
+        try {
+            Commons commons = new Commons();
+            Statement statement = commons.getStatement();
+            String query = "SELECT * FROM USERS WHERE EMAIL = '" + email + "'' AND PASSWORD = '" + password + "'";
+            ResultSet resultSet = statement.executeQuery(query);
+            if (resultSet.next()) {
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+
     }
 
 }
