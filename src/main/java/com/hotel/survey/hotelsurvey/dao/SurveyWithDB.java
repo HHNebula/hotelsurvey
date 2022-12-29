@@ -138,7 +138,7 @@ public class SurveyWithDB {
         try {
             Commons commons = new Commons();
             Statement statement = commons.getStatement();
-            String query = "SELECT * FROM Admin WHERE ID = '" + id + "'' AND PW = '" + pw + "'";
+            String query = "SELECT * FROM ADMIN WHERE ID = '" + id + "' AND PW = '" + pw + "'";
             ResultSet resultSet = statement.executeQuery(query);
             if (resultSet.next()) {
                 return true;
