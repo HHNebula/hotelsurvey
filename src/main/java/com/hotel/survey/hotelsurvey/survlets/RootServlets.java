@@ -13,12 +13,13 @@ import jakarta.servlet.http.HttpServletResponse;
 public class RootServlets extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/index.jsp");
+
+        // TODO 세션을 가져와서 로그인 여부를 체크
+        // 로그인 되어있으면 > 로그아웃 버튼
+        // 로그인 안되어있으면 > 로그인 / 사인업 버튼
+
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/jsp/prod/index.jsp");
         requestDispatcher.forward(request, response);
     }
 
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        this.doGet(req, resp);
-    }
 }
