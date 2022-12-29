@@ -3,6 +3,7 @@ package com.hotel.survey.hotelsurvey.dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -163,6 +164,59 @@ public class SurveyWithDB {
             e.printStackTrace();
         }
         return false;
+
+    }
+
+    // [GYEONG] 체크인아웃 날짜 arrayList에 담기
+    public ArrayList<HashMap> getDate() throws SQLException {
+
+        Commons commons = new Commons();
+        Statement statement = commons.getStatement();
+
+        String query = "SELECT RESERVATIONS.RESERV_ID, RESERVATIONS.CHECK_IN_DATE, RESERVATIONS.CHECK_OUT_DATE, USERS.EMAIL, USERS.USER_ID"
+                + " FROM RESERVATIONS INNER JOIN USERS " +
+                " ON RESERVATIONS.USER_ID = USERS.USER_ID " +
+                " ORDER BY CHECK_IN_DATE ";
+
+        ResultSet resultSet = statement.executeQuery(query);
+
+        HashMap<String, Object> dates = new HashMap<>();
+        ArrayList<HashMap> date_list = new ArrayList<>();
+        while (resultSet.next()) {
+            String reserv_ID = resultSet.getString("RESERV_ID");
+            String user_ID = resultSet.getString("USER_ID");
+            Timestamp checkIn = resultSet.getTimestamp("CHECK_IN_DATE");
+            Timestamp checkOut = resultSet.getTimestamp("CHECK_OUT_DATE");
+            String email = resultSet.getString("EMAIL");
+
+            dates.put("RESERV_ID", reserv_ID);
+            dates.put("USER_ID", user_ID);
+            dates.put("CHECK_IN_DATE", checkIn);
+            dates.put("CHECK_OUT_DATE", checkOut);
+            dates.put("EMAIL", email);
+
+            date_list.add(dates);
+
+        }
+
+        return date_list;
+
+    }
+
+    // [GYEONG] 답받은 값 DB에 넣기
+    public void insertAnswer(String q1, String q2, String q3, String q4, String q5) throws SQLException {
+
+        Commons commons = new Commons();
+        Statement statement = commons.getStatement();
+
+        String query = " INSERT INTO SELECTIVE_SURVEYED " +
+                " VALUES ('R2', 'Q1', '" + q1 + "')," +
+                " ('R2', 'Q2', '" + q2 + "'), " +
+                " ('R2', 'Q3', '" + q3 + "'), " +
+                " ('R2', 'Q4', '" + q4 + "'), " +
+                " ('R2', 'Q5', '" + q5 + "') ";
+
+        statement.execute(query);
 
     }
 

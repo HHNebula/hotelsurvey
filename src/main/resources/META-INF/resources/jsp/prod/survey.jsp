@@ -40,7 +40,7 @@
 
     <!-- main -->
     <main class="mt-5 pt-5 py-sm-5 py-md-0 px-5 px-lg-5">
-        <form action="/statisticsServlets">
+        <form action="/statisticsServlets" method="post">
             <!-- 호텔로고 & 설문안내 -->
             <div class="card text-center align-items-center text-secondary">
                 <img class="card-img-top" src="../img/hotelimg.png" alt="Card image cap" style="width: 400px;">
