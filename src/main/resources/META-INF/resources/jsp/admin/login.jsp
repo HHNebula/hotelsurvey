@@ -13,7 +13,7 @@
 <body>
     <div class="container text-center justify-content-center">
         <div class="fs-2" style="margin-top: 10vw;">Admin System</div>
-        <form action="/admin/login" class="" method="post">
+        <form action="/admin/login" method="post">
             <div class="row d-flex justify-content-center m-3">
                 <div class="col-12 col-md-3">
                     <input type="text" name="adminId" id="adminId" placeholder="Admin ID" class="form-control" required>

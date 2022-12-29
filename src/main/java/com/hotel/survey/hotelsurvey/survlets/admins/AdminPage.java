@@ -1,9 +1,6 @@
 package com.hotel.survey.hotelsurvey.survlets.admins;
 
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
 
 import com.hotel.survey.hotelsurvey.dao.SurveyWithDB;
 
@@ -33,9 +30,13 @@ public class AdminPage extends HttpServlet {
         // 3. 유효한 로그인 정보인지 검사
         SurveyWithDB surveyWithDB = new SurveyWithDB();
         if (surveyWithDB.isAdmin(adminId, adminPw)) {
-            path = "jsp/admin/main.jsp";
+            // 로그인 되어있으면 메인으로 이동
+            path = "/jsp/admin/main.jsp";
+            session.setAttribute("login", true);
         } else {
-            path = "jsp/admin/login.jsp";
+            // 로그인 안되어있으면 로그인 페이지로 이동
+            path = "/jsp/admin/login.jsp";
+            session.setAttribute("login", false);
         }
 
         // 4. 저장된 경로로 랜딩
