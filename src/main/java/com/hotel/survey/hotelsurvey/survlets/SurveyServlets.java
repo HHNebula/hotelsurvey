@@ -1,6 +1,7 @@
 package com.hotel.survey.hotelsurvey.survlets;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -23,10 +24,18 @@ public class SurveyServlets extends HttpServlet {
         SurveyWithDB surveyWithDB = new SurveyWithDB();
 
         ArrayList<HashMap> bundle_list = null;
+        ArrayList<HashMap> date_list = null;
+        String emails = request.getParameter("email");
 
-        bundle_list = surveyWithDB.getList();
+        try {
+            bundle_list = surveyWithDB.getList();
+            date_list = surveyWithDB.getDate(emails);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         request.setAttribute("bundle_list", bundle_list);
+        request.setAttribute("date_list", date_list);
 
         // jsp로 보내기
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/jsp/prod/survey.jsp");

@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import=" java.util.HashMap, java.util.ArrayList " %>
+<%@ page import=" java.util.HashMap, java.util.ArrayList, java.sql.Timestamp, java.text.SimpleDateFormat " %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +40,7 @@
 
     <!-- main -->
     <main class="mt-5 pt-5 py-sm-5 py-md-0 px-5 px-lg-5">
-        <form action="/statisticsServlets" method="post">
+        <form action="/statisticsServlets" >
             <!-- 호텔로고 & 설문안내 -->
             <div class="card text-center align-items-center text-secondary">
                 <img class="card-img-top" src="../img/hotelimg.png" alt="Card image cap" style="width: 400px;">
@@ -73,19 +73,29 @@
                                             fill="currentColor" class="bi bi-calendar2-week-fill" viewBox="0 0 16 16">
                                             <path
                                                 d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zM8.5 7a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM3 10.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1z" />
-                                        </svg> Check In LIist
+                                        </svg> Check In List
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="triggerId" required>
-                                        <button class="dropdown-item" href="#" required>22-10-10 / 14:30:11 / JEJU L4
-                                            HOTEL /
-                                            Suite room
+                            <% 
+                                ArrayList<HashMap> date_list = (ArrayList<HashMap>)request.getAttribute("date_list"); 
+                                for (int i = 0; i < date_list.size(); i++) {
+                                    HashMap<String, Object> date = (HashMap<String, Object>) date_list.get(i);
+                                    String reservID = (String) date.get("RESERV_ID");
+                                    String userID = (String) date.get("USER_ID");
+                                    String email = (String) date.get("EMAIL");
+                                    Timestamp checkIn = (Timestamp) date.get("CHECK_IN_DATE");
+                                    Timestamp checkOut = (Timestamp) date.get("CHECK_OUT_DATE"); 
+                                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy년 MM월 dd일");
+                                    String strCheckIn = simpleDateFormat.format(checkIn);
+                                    String strCheckOut = simpleDateFormat.format(checkOut);
+                                    %>
+                                    <button class="dropdown-item" type= "summit" href="#" name ="reservID" value="<%= reservID %>" required><%= strCheckIn %> / <%= strCheckOut %>/ JEJU L4
+                                            HOTEL 
                                         </button>
-                                        <button class="dropdown-item" href="#">23-11-11 /12:10:11 / JEJU L4 HOTEL /
-                                            Family Room
-                                        </button>
-                                        <button class="dropdown-item" href="#">23-11-7 / 18:55:00 / JEJU L4 HOTEL /
-                                            Suite room
-                                        </button>
+
+                            
+                             <%   }  %>
+
                                         <button class="dropdown-item disabled" href="#">Check-Out을 완료한 투숙건만
                                             보여집니다.</button>
                                     </div>

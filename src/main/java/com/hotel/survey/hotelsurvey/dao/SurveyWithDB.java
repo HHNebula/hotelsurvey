@@ -68,7 +68,7 @@ public class SurveyWithDB {
         return bundle_list;
     }
 
-    // [GYEONG]
+    // [GYEONG] 통계
     public ArrayList<HashMap> getStatistics() throws SQLException {
 
         Commons commons = new Commons();
@@ -168,7 +168,7 @@ public class SurveyWithDB {
     }
 
     // [GYEONG] 체크인아웃 날짜 arrayList에 담기
-    public ArrayList<HashMap> getDate() throws SQLException {
+    public ArrayList<HashMap> getDate(String emails) throws SQLException {
 
         Commons commons = new Commons();
         Statement statement = commons.getStatement();
@@ -176,13 +176,14 @@ public class SurveyWithDB {
         String query = "SELECT RESERVATIONS.RESERV_ID, RESERVATIONS.CHECK_IN_DATE, RESERVATIONS.CHECK_OUT_DATE, USERS.EMAIL, USERS.USER_ID"
                 + " FROM RESERVATIONS INNER JOIN USERS " +
                 " ON RESERVATIONS.USER_ID = USERS.USER_ID " +
+                " WHERE USERS.EMAIL = '" + emails + "'" +
                 " ORDER BY CHECK_IN_DATE ";
 
         ResultSet resultSet = statement.executeQuery(query);
 
-        HashMap<String, Object> dates = new HashMap<>();
         ArrayList<HashMap> date_list = new ArrayList<>();
         while (resultSet.next()) {
+            HashMap<String, Object> dates = new HashMap<>();
             String reserv_ID = resultSet.getString("RESERV_ID");
             String user_ID = resultSet.getString("USER_ID");
             Timestamp checkIn = resultSet.getTimestamp("CHECK_IN_DATE");
