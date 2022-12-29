@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,14 +49,14 @@
             <div class="row justify-content-center">
                 <div class="form-group col-12 col-md-4 my-1">
                     <label for="input-login-email">Email</label>
-                    <input type="text" name="input-login-email" class="form-control" id="input-login-email"
+                    <input type="text" name="input-login-email" class="form-control" id="input-login-email" value="email"
                         placeholder="example@example.com" required>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="form-group col-12 col-md-4 my-1">
                     <label for="input-first-email">Password</label>
-                    <input type="password" name="input-first-email" class="form-control" id="input-first-email"
+                    <input type="password" name="input-first-email" class="form-control" id="input-first-email" value="password"
                         required>
                 </div>
             </div>
@@ -68,6 +69,9 @@
             <div class="row justify-content-center text-center">
                 <div class="form-group col-12 col-md-4 my-1">
                     <input class="btn btn-dark w-100" type="submit" value="Log in">
+                                <% if ((String) session.getAttribute("error") != null) { %>
+                            <%= (String) session.getAttribute("error")%>
+                        <% } %>
                 </div>
             </div>
             <div class="row justify-content-center text-center">

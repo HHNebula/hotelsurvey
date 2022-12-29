@@ -16,22 +16,23 @@ public class Login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
         response.setContentType("text/html;charset=UTF-8");
+
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         SurveyWithDB surveyWithDB = new SurveyWithDB();
+        HttpSession session = request.getSession();
 
         if (surveyWithDB.isUser(email, password)) {
 
-            HttpSession session = request.getSession();
+
             session.setAttribute("email", email);
-            response.sendRedirect("index.jsp");
+            session.setAttribute("password", password);
+            response.sendRedirect("/jsp/prod/index.jsp");
 
         } else {
-
-            response.sendRedirect("login.jsp");
-
+            session.setAttribute("error", "로그인 정보가 정확하지 않습니다.");
+            response.sendRedirect("/jsp/prod/login.jsp");
         }
 
     }
