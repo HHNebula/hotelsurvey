@@ -168,7 +168,7 @@ public class SurveyWithDB {
     }
 
     // [GYEONG]체크인아웃 날짜 arrayList에 담기
-    public ArrayList<HashMap> getDate(String emails) throws SQLException {
+    public ArrayList<HashMap> getDate(String userIDs) throws SQLException {
 
         Commons commons = new Commons();
         Statement statement = commons.getStatement();
@@ -176,7 +176,7 @@ public class SurveyWithDB {
         String query = "SELECT RESERVATIONS.RESERV_ID, RESERVATIONS.CHECK_IN_DATE, RESERVATIONS.CHECK_OUT_DATE, USERS.EMAIL, USERS.USER_ID"
                 + " FROM RESERVATIONS INNER JOIN USERS " +
                 " ON RESERVATIONS.USER_ID = USERS.USER_ID " +
-                " WHERE USERS.EMAIL = '" + emails + "'" +
+                " WHERE USERS.USER_ID = '" + userIDs + "'" +
                 " ORDER BY CHECK_IN_DATE ";
 
         ResultSet resultSet = statement.executeQuery(query);
