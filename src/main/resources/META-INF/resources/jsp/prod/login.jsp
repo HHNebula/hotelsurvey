@@ -45,19 +45,17 @@
             </div>
         </div>
 
-        <form action="./index.html" class="mb-5">
+        <form action="/login/attemptlogin" class="mb-5" method="post">
             <div class="row justify-content-center">
                 <div class="form-group col-12 col-md-4 my-1">
-                    <label for="input-login-email">Email</label>
-                    <input type="text" name="input-login-email" class="form-control" id="input-login-email" value="email"
-                        placeholder="example@example.com" required>
+                    <label for="userEmail">Email</label>
+                    <input type="text" name="userEmail" class="form-control" id="userEmail" placeholder="example@example.com" required>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="form-group col-12 col-md-4 my-1">
-                    <label for="input-first-email">Password</label>
-                    <input type="password" name="input-first-email" class="form-control" id="input-first-email" value="password"
-                        required>
+                    <label for="userPassword">Password</label>
+                    <input type="password" name="userPassword" class="form-control" id="userPassword" required>
                 </div>
             </div>
             <div class="row justify-content-center">
@@ -69,9 +67,6 @@
             <div class="row justify-content-center text-center">
                 <div class="form-group col-12 col-md-4 my-1">
                     <input class="btn btn-dark w-100" type="submit" value="Log in">
-                                <% if ((String) session.getAttribute("error") != null) { %>
-                            <%= (String) session.getAttribute("error")%>
-                        <% } %>
                 </div>
             </div>
             <div class="row justify-content-center text-center">

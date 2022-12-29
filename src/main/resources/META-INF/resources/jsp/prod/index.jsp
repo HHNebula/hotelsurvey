@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,8 +32,17 @@
         </ul>
 
         <div class="col-md-3 text-end">
-            <a href="./login.html" type="button" class="btn btn-outline-light me-2">Log In</a>
+        <%
+            boolean isLogin = (boolean) request.getAttribute("login");
+            if (isLogin) {
+        %>
+            <a href="/logout/attemptlogin" type="button" class="btn btn-outline-light me-2">Log Out</a>
+        <%
+            } else {
+        %>
+            <a href="/login" type="button" class="btn btn-outline-light me-2">Log In</a>
             <a href="./signup.html" type="button" class="btn btn-light">Sign Up</a>
+        <% } %>
         </div>
     </header>
 
