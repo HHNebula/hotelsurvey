@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,6 +29,11 @@
             <div class="row d-flex justify-content-center m-3">
                 <div class="col-12 col-md-3">
                     <input type="submit" value="Submit" class="btn btn-dark w-100">
+                    <div>
+                        <% if ((String) session.getAttribute("error") != null) { %>
+                            <%= (String) session.getAttribute("error")%>
+                        <% } %>
+                    </div>
                 </div>
             </div>
         </form>

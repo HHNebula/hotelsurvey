@@ -32,11 +32,10 @@ public class AdminPage extends HttpServlet {
         if (surveyWithDB.isAdmin(adminId, adminPw)) {
             // 로그인 되어있으면 메인으로 이동
             path = "/jsp/admin/main.jsp";
-            session.setAttribute("login", true);
         } else {
             // 로그인 안되어있으면 로그인 페이지로 이동
+            session.invalidate();
             path = "/jsp/admin/login.jsp";
-            session.setAttribute("login", false);
         }
 
         // 4. 저장된 경로로 랜딩
