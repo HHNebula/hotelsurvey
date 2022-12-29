@@ -14,7 +14,7 @@
 <body>
     <div class="container text-center justify-content-center">
         <div class="fs-2" style="margin-top: 10vw;">Admin System</div>
-        <form action="/admin/login" method="post">
+        <form action="/admin/attemptlogin" method="post">
             <div class="row d-flex justify-content-center m-3">
                 <div class="col-12 col-md-3">
                     <input type="text" name="adminId" id="adminId" placeholder="Admin ID" class="form-control" required>
@@ -29,7 +29,7 @@
             <div class="row d-flex justify-content-center m-3">
                 <div class="col-12 col-md-3">
                     <input type="submit" value="Submit" class="btn btn-dark w-100">
-                    <div>
+                    <div class="text-danger my-1">
                         <% if ((String) session.getAttribute("error") != null) { %>
                             <%= (String) session.getAttribute("error")%>
                         <% } %>

@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import com.hotel.survey.hotelsurvey.dao.SurveyWithDB;
 
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -12,6 +11,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
+// 어드민 페이지 - 세션 유무에 따라 로그인 / 메인 서블릿 호출
 @WebServlet(urlPatterns = "/admin")
 public class AdminPage extends HttpServlet {
 
@@ -25,22 +25,17 @@ public class AdminPage extends HttpServlet {
         // 2. 세션의 어트리뷰트를 가져와 로그인 정보를 저장함
         String adminId = (String) session.getAttribute("adminId");
         String adminPw = (String) session.getAttribute("adminPw");
-        String path = null;
 
         // 3. 유효한 로그인 정보인지 검사
         SurveyWithDB surveyWithDB = new SurveyWithDB();
         if (surveyWithDB.isAdmin(adminId, adminPw)) {
-            // 로그인 되어있으면 메인으로 이동
-            path = "/jsp/admin/main.jsp";
+            // 로그인 되어있으면 메인 서블릿 호출
+            response.sendRedirect("/admin/main");
         } else {
-            // 로그인 안되어있으면 로그인 페이지로 이동
+            // 로그인 안되어있으면 로그인 서블릿 호출
             session.invalidate();
-            path = "/jsp/admin/login.jsp";
+            response.sendRedirect("/admin/login");
         }
-
-        // 4. 저장된 경로로 랜딩
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher(path);
-        requestDispatcher.forward(request, response);
 
     }
 
