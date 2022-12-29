@@ -167,7 +167,7 @@ public class SurveyWithDB {
 
     }
 
-    // [GYEONG] 체크인아웃 날짜 arrayList에 담기
+    // [GYEONG]체크인아웃 날짜 arrayList에 담기
     public ArrayList<HashMap> getDate(String emails) throws SQLException {
 
         Commons commons = new Commons();
