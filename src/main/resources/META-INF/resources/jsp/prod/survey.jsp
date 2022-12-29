@@ -1,3 +1,5 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import=" java.util.HashMap, java.util.ArrayList, java.sql.Timestamp, java.text.SimpleDateFormat " %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,7 +40,7 @@
 
     <!-- main -->
     <main class="mt-5 pt-5 py-sm-5 py-md-0 px-5 px-lg-5">
-        <form action="./statistics.html">
+        <form action="/statisticsServlets" >
             <!-- 호텔로고 & 설문안내 -->
             <div class="card text-center align-items-center text-secondary">
                 <img class="card-img-top" src="../img/hotelimg.png" alt="Card image cap" style="width: 400px;">
@@ -71,19 +73,29 @@
                                             fill="currentColor" class="bi bi-calendar2-week-fill" viewBox="0 0 16 16">
                                             <path
                                                 d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zM8.5 7a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM3 10.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1z" />
-                                        </svg> Check In LIist
+                                        </svg> Check In List
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="triggerId" required>
-                                        <button class="dropdown-item" href="#" required>22-10-10 / 14:30:11 / JEJU L4
-                                            HOTEL /
-                                            Suite room
+                            <% 
+                                ArrayList<HashMap> date_list = (ArrayList<HashMap>)request.getAttribute("date_list"); 
+                                for (int i = 0; i < date_list.size(); i++) {
+                                    HashMap<String, Object> date = (HashMap<String, Object>) date_list.get(i);
+                                    String reservID = (String) date.get("RESERV_ID");
+                                    String userID = (String) date.get("USER_ID");
+                                    String email = (String) date.get("EMAIL");
+                                    Timestamp checkIn = (Timestamp) date.get("CHECK_IN_DATE");
+                                    Timestamp checkOut = (Timestamp) date.get("CHECK_OUT_DATE"); 
+                                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy년 MM월 dd일");
+                                    String strCheckIn = simpleDateFormat.format(checkIn);
+                                    String strCheckOut = simpleDateFormat.format(checkOut);
+                                    %>
+                                    <button class="dropdown-item" type= "summit" href="#" name ="reservID" value="<%= reservID %>" required><%= strCheckIn %> / <%= strCheckOut %>/ JEJU L4
+                                            HOTEL 
                                         </button>
-                                        <button class="dropdown-item" href="#">23-11-11 /12:10:11 / JEJU L4 HOTEL /
-                                            Family Room
-                                        </button>
-                                        <button class="dropdown-item" href="#">23-11-7 / 18:55:00 / JEJU L4 HOTEL /
-                                            Suite room
-                                        </button>
+
+                            
+                             <%   }  %>
+
                                         <button class="dropdown-item disabled" href="#">Check-Out을 완료한 투숙건만
                                             보여집니다.</button>
                                     </div>
@@ -94,137 +106,41 @@
                         <div class="card mb-3 bg-opacity-50" style="width: 100%;">
                             <div class="card-header">Customer Satisfaction Survey</div>
                             <div class="list-group list-group-flush text-dark fs-5">
-                                <li class="list-group-item mb-4 pb-4">
-                                    <p class="mt-3">1. 호텔을 찾아오시는 길은 편리하셨습니까?</p>
-                                    <div class="btn-group">
-                                        <label class="btn btn-dark " for="traffic_Very_satisfied">
-                                            <input type="radio" name="traffic" id="traffic_Very_satisfied"
-                                                value="Very_satisfied" autocomplete="off" required> 매우만족 <br>
-                                        </label>
-                                        <label class="btn btn-dark" for="traffic_Satisfied">
-                                            <input type="radio" name="traffic" id="traffic_Satisfied" value="Satisfied"
-                                                autocomplete="off" required>
-                                            만족
-                                        </label>
-                                        <label class="btn btn-dark" for="traffic_normal">
-                                            <input type="radio" name="traffic" id="traffic_normal" value="normal"
-                                                autocomplete="off" required> 보통
-                                        </label>
-                                        <label class="btn btn-dark" for="traffic_Complained">
-                                            <input type="radio" name="traffic" id="traffic_Complained"
-                                                value="Complained" autocomplete="off" required> 불만
-                                        </label>
-                                        <label class="btn btn-dark" for="traffic_Dissatisfied">
-                                            <input type="radio" name="traffic" id="traffic_Dissatisfied"
-                                                value="Dissatisfied" autocomplete="off" required> 매우불만
-                                        </label>
-                                    </div>
-                                </li>
-                                <p class="card-text">2. 호텔의 직원들은 얼마나 친절하였습니까?</p>
-                                <li class="list-group-item mb-3 pb-4">
-                                    <div class="btn-group">
-                                        <label class="btn btn-dark " for="kind_Very_satisfied">
-                                            <input type="radio" name="kind" id="kind_Very_satisfied"
-                                                value="Very_satisfied" autocomplete="off " required> 매우만족
-                                        </label>
-                                        <label class="btn btn-dark" for="kind_Satisfied">
-                                            <input type="radio" name="kind" id="kind_Satisfied" value="Satisfied"
-                                                autocomplete="off" required>
-                                            만족
-                                        </label>
-                                        <label class="btn btn-dark" for="kind_normal">
-                                            <input type="radio" name="kind" id="kind_normal" value="normal"
-                                                autocomplete="off" required> 보통
-                                        </label>
-                                        <label class="btn btn-dark" for="kind_Complained">
-                                            <input type="radio" name="kind" id="kind_Complained" value="Complained"
-                                                autocomplete="off" required> 불만
-                                        </label>
-                                        <label class="btn btn-dark" for="kind_Dissatisfied">
-                                            <input type="radio" name="kind" id="kind_Dissatisfied" value="Dissatisfied"
-                                                autocomplete="off" required>
-                                            매우불만
-                                        </label>
-                                    </div>
-                                </li>
-                                <p class="card-text">3. 호텔의 전체적인 청결도는 만족하셨습니까?</p>
-                                <li class="list-group-item mb-3 pb-4">
-                                    <div class="btn-group">
-                                        <label class="btn btn-dark " for="clean_Very_satisfied">
-                                            <input type="radio" name="clean" id="clean_Very_satisfied"
-                                                value="Very_satisfied" autocomplete="off" required> 매우만족
-                                        </label>
-                                        <label class="btn btn-dark" for="clean_Satisfied">
-                                            <input type="radio" name="clean" id="clean_Satisfied" value="Satisfied"
-                                                autocomplete="off" required>
-                                            만족
-                                        </label>
-                                        <label class="btn btn-dark" for="clean_normal">
-                                            <input type="radio" name="clean" id="clean_normal" value="normal"
-                                                autocomplete="off" required> 보통
-                                        </label>
-                                        <label class="btn btn-dark" for="clean_Complained">
-                                            <input type="radio" name="clean" id="clean_Complained" value="Complained"
-                                                autocomplete="off" required> 불만
-                                        </label>
-                                        <label class="btn btn-dark" for="clean_Dissatisfied">
-                                            <input type="radio" name="clean" id="clean_Dissatisfied"
-                                                value="Dissatisfied" autocomplete="off" required> 매우불만
-                                        </label>
-                                    </div>
-                                </li>
-                                <p class="card-text">4. 식당의 음식 만족도는 어떠셨습니까?</p>
-                                <li class="list-group-item mb-3 pb-4">
-                                    <div class="btn-group">
-                                        <label class="btn btn-dark " for="food_Very_satisfied">
-                                            <input type="radio" name="food" id="food_Very_satisfied"
-                                                value="Very_satisfied" autocomplete="off" required> 매우만족
-                                        </label>
-                                        <label class="btn btn-dark" for="food_Satisfied">
-                                            <input type="radio" name="food" id="food_Satisfied" value="Satisfied"
-                                                autocomplete="off" required>
-                                            만족
-                                        </label>
-                                        <label class="btn btn-dark" for="food_normal">
-                                            <input type="radio" name="food" id="food_normal" value="normal"
-                                                autocomplete="off" required> 보통
-                                        </label>
-                                        <label class="btn btn-dark" for="food_Complained">
-                                            <input type="radio" name="food" id="food_Complained" value="Complained"
-                                                autocomplete="off" required> 불만
-                                        </label>
-                                        <label class="btn btn-dark" for="food_Dissatisfied">
-                                            <input type="radio" name="food" id="food_Dissatisfied" value="Dissatisfied"
-                                                autocomplete="off" required> 매우불만
-                                        </label>
-                                    </div>
-                                </li>
-                                <p class="card-text">5. 부대시설 이용은 편리하셨습니까?</p>
-                                <li class="list-group-item mb-3 pb-4">
-                                    <div class="btn-group">
-                                        <label class="btn btn-dark " for="facility_Very_satisfied">
-                                            <input type="radio" name="facility" id="facility_Very_satisfied"
-                                                value="Very_satisfied" autocomplete="off" required> 매우만족
-                                        </label>
-                                        <label class="btn btn-dark" for="facility_Satisfied">
-                                            <input type="radio" name="facility" id="facility_Satisfied"
-                                                value="Satisfied" autocomplete="off" required>
-                                            만족
-                                        </label>
-                                        <label class="btn btn-dark" for="facility_normal">
-                                            <input type="radio" name="facility" id="facility_normal" value="normal"
-                                                autocomplete="off" required> 보통
-                                        </label>
-                                        <label class="btn btn-dark" for="facility_Complained">
-                                            <input type="radio" name="facility" id="facility_Complained"
-                                                value="Complained" autocomplete="off" required> 불만
-                                        </label>
-                                        <label class="btn btn-dark" for="facility_Dissatisfied">
-                                            <input type="radio" name="facility" id="facility_Dissatisfied"
-                                                value="Dissatisfied" autocomplete="off" required> 매우불만
-                                        </label>
-                                    </div>
-                                </li>
+                            <div class ="mb-3"></div>
+            <!-- ArrayList 설문 답항 불러오기 -->
+         <% ArrayList<HashMap>bundle_list = (ArrayList<HashMap>)request.getAttribute("bundle_list");
+            for (int i = 0; i < bundle_list.size(); i++) {
+            HashMap<String, Object> bundles = bundle_list.get(i);
+            HashMap<String, Object> questions = (HashMap<String, Object>) bundles.get("question");
+            
+            //각각 변수에 담기
+            String question = (String) questions.get("QUESTION");
+            String question_ID = (String) questions.get("QUESTION_ID");
+            int order = (int) questions.get("ORDERS"); %>
+            
+            <%-- 문항 출력 --%>
+            <p class="card-text"><%= order %>. <%= question %></p>
+             <%
+            ArrayList<HashMap> answers_list = (ArrayList<HashMap>) bundles.get("answer_list"); %>
+             <li class="list-group-item mb-4 pb-4">
+                <div class="btn-group">
+                <%-- 답항 출력 --%>
+            <% for (int j = 0; j < answers_list.size(); j++) {
+                HashMap<String, Object> answers = (HashMap<String, Object>) answers_list.get(j);
+                 int ans_order = (int) answers.get("ORDERS");
+                 String answer = (String) answers.get("ANSWER");
+                 String answer_ID = (String) answers.get("ANSWER_ID"); %>
+
+                                        <label class="btn btn-dark " for="<%= question_ID %><%= answer_ID %>">
+                                            <input type="radio" name="<%= question_ID %>" id="<%= question_ID %><%= answer_ID %>"
+                                                value="<%= answer_ID %>" autocomplete="off" required><%=  answer %><br>
+                            </label>
+                        <% } %>
+                 </div>
+            </li>
+        <%   } %>
+
+                                  
                                 <!-- 주관식문항(선택) -->
                                 <li class="list-group-item">
                                     <p class="card-text">6. 고객님의 소중한 의견을 자유롭게 남겨주세요 (선택사항) <br> Please feel free to
