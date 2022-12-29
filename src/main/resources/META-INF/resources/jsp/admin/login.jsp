@@ -22,7 +22,7 @@
             </div>
             <div class="row d-flex justify-content-center m-3">
                 <div class="col-12 col-md-3">
-                    <input type="password" name="adminPw" id="adminId" placeholder="Admin PW" class="form-control"
+                    <input type="password" name="adminPw" id="adminPw" placeholder="Admin PW" class="form-control"
                         required>
                 </div>
             </div>
