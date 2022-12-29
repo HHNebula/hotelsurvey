@@ -150,21 +150,21 @@ public class SurveyWithDB {
     }
 
     // [SOO] 사용자 로그인 정보가 정확한지 확인하여 리턴
-    public boolean isUser(String email, String password) {
+    public String isUser(String email, String password) {
 
         try {
             Commons commons = new Commons();
             Statement statement = commons.getStatement();
-            String query = "SELECT * FROM USERS WHERE EMAIL = '" + email + "'' AND PASSWORD = '" + password + "'";
+            String query = "SELECT USER_ID FROM USERS WHERE EMAIL = '" + email + "' AND PASSWORD = '" + password + "'";
             ResultSet resultSet = statement.executeQuery(query);
             if (resultSet.next()) {
-                return true;
+                String userId = resultSet.getString("USER_ID");
+                return userId;
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return false;
-
+        return "error";
     }
 
     // [GYEONG]체크인아웃 날짜 arrayList에 담기
