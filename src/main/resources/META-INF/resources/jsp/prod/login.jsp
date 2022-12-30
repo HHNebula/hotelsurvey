@@ -64,7 +64,7 @@
               <div class="row justify-content-center text-center">
             <div class="alert alert-warning alert-dismissible fade show form-group col-12 col-md-4 my-1 " role="alert">
             <i class="bi bi-patch-exclamation-fill"></i>
-             일치하는 정보가 없습니다.<br><strong><a href="./forget_id_pw.jsp" class="alert-link">ID/Password를</a></strong>확인해주세요 
+             일치하는 정보가 없습니다.<br><strong><a href="/forget_id_pw" class="alert-link">ID/Password를</a></strong>확인해주세요 
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
             </div>
@@ -78,7 +78,7 @@
             </div>
             <div class="row justify-content-center text-center">
                 <div class="form-group col-12 col-md-4 my-1">
-                    <a href="./signup.html" class="btn btn-outline-dark w-100">Is this your first time at the L4
+                    <a href="/signup" class="btn btn-outline-dark w-100">Is this your first time at the L4
                         hotel?</a>
                 </div>
             </div>
