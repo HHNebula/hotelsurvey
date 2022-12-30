@@ -2,8 +2,6 @@ package com.hotel.survey.hotelsurvey.survlets;
 
 import java.io.IOException;
 
-import com.hotel.survey.hotelsurvey.dao.SurveyWithDB;
-
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
