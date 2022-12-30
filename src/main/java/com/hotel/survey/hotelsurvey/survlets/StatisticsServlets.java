@@ -13,6 +13,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @WebServlet(urlPatterns = "/statisticsServlets")
 public class StatisticsServlets extends HttpServlet {
@@ -20,6 +21,8 @@ public class StatisticsServlets extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+
+        SurveyWithDB surveyWithDB = new SurveyWithDB();
 
         // 라디오 name 과 value 값 받기
         String reservId = request.getParameter("reservID");
@@ -29,9 +32,7 @@ public class StatisticsServlets extends HttpServlet {
         String q4 = request.getParameter("Q4");
         String q5 = request.getParameter("Q5");
 
-        SurveyWithDB surveyWithDB = new SurveyWithDB();
         ArrayList<HashMap> statistic_list = null;
-
         try {
             statistic_list = surveyWithDB.getStatistics();
             surveyWithDB.insertAnswer(reservId, q1, q2, q3, q4, q5);

@@ -18,7 +18,7 @@
 
 <body class="pt-5">
     <!-- HEADER : NAV-->
-    <%@ include file="hearder.jsp" %>
+
 
     <!-- Main-->
     <main class="container mt-5 pt-5 py-sm-5 py-md-0 px-5 px-lg-5">
