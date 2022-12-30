@@ -19,6 +19,7 @@ public class LogoutAttempt extends HttpServlet {
             throws ServletException, IOException {
 
         HttpSession session = request.getSession();
+        request.setAttribute("login", false);
         session.invalidate();
         response.sendRedirect("/home");
 

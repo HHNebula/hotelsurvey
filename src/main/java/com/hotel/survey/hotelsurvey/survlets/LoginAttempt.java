@@ -35,6 +35,7 @@ public class LoginAttempt extends HttpServlet {
         } else {
             // 정보가 일치할 경우 - userId를 받아서 넘김
             session.setAttribute("userId", userId);
+            request.setAttribute("login", true);
             response.sendRedirect("/home");
         }
 
