@@ -76,7 +76,12 @@
                                         </svg> Check In List
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="triggerId" required>
+                            
+                          <input type="hidden" name="reservID" value="R2" />
+
+                            
                             <% 
+
                                 ArrayList<HashMap> date_list = (ArrayList<HashMap>)request.getAttribute("date_list"); 
                                 for (int i = 0; i < date_list.size(); i++) {
                                     HashMap<String, Object> date = (HashMap<String, Object>) date_list.get(i);
@@ -89,7 +94,7 @@
                                     String strCheckIn = simpleDateFormat.format(checkIn);
                                     String strCheckOut = simpleDateFormat.format(checkOut);
                                     %>
-                                    <button class="dropdown-item" type= "summit" href="#" name ="reservID" value="<%= reservID %>" required><%= strCheckIn %> / <%= strCheckOut %> / JEJU L4
+                                    <button class="dropdown-item" type= "button" href="#" name ="reservID" value="<%= reservID %>" required><%= strCheckIn %> / <%= strCheckOut %> / JEJU L4
                                             HOTEL 
                                         </button>
 
