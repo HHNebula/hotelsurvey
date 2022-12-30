@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,60 +37,59 @@
         </div>
 
         <!-- Form -->
-        <form class="pb-5" action="./index.html">
+        <form class="pb-5" action="/signup/attempt" method="post">
             <div class="row justify-content-center">
                 <div class="form-group col-12 col-md-4 my-3">
-                    <label for="input-first-email">Email address</label>
-                    <input type="email" class="form-control" id="input-first-email" aria-describedby="emailHelp"
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp"
                         placeholder="email@email.com" required>
                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
                         else.</small>
                 </div>
                 <div class="form-group col-12 col-md-4 my-3">
-                    <label for="input-first-email">Password</label>
-                    <input type="password" class="form-control" id="input-first-email" name="input-first-email"
-                        required>
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="form-group col-12 col-md-4 my-3">
-                    <label for="input-first-name">Frist Name</label>
-                    <input type="text" class="form-control" id="input-first-name" name="input-first-name" required>
+                    <label for="firstName">Frist Name</label>
+                    <input type="text" class="form-control" id="firstName" name="firstName" required>
                 </div>
                 <div class="form-group col-12 col-md-4 my-3">
-                    <label for="input-first-name">Last Name</label>
-                    <input type="text" class="form-control" id="input-last-name" name="input-last-name" required>
+                    <label for="lastName">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" name="lastName" required>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="form-group col-12 col-md-4 my-3">
-                    <label for="input-title">Title of honor</label>
-                    <input type="text" class="form-control" id="input-title" name="input-title"
+                    <label for="titleOfHonor">Title of honor</label>
+                    <input type="text" class="form-control" id="titleOfHonor" name="titleOfHonor"
                         placeholder="Mr / Mrs / Ms / Miss / ..." required>
                 </div>
                 <div class="form-group col-12 col-md-4 my-3">
-                    <label for="input-birthday">Birthday</label>
-                    <input type="date" class="form-control" id="input-birthday" name="input-birthday" required>
+                    <label for="birthday">Birthday</label>
+                    <input type="date" class="form-control" id="birthday" name="birthday" required>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="form-group col-12 col-md-2 my-3">
-                    <label for="input-country">Country</label>
-                    <input type="text" class="form-control" id="input-country" name="input-country" required>
+                    <label for="country">Country</label>
+                    <input type="text" class="form-control" id="country" name="country" required>
                 </div>
                 <div class="form-group col-12 col-md-3 my-3">
-                    <label for="input-state">State</label>
-                    <input type="text" class="form-control" id="input-state" name="input-state" required>
+                    <label for="state">State</label>
+                    <input type="text" class="form-control" id="state" name="state" required>
                 </div>
                 <div class="form-group col-12 col-md-3 my-3">
-                    <label for="input-city">City</label>
-                    <input type="text" class="form-control" id="input-city" name="input-city" required>
+                    <label for="city">City</label>
+                    <input type="text" class="form-control" id="city" name="city" required>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="form-group col-12 col-md-8 my-3">
-                    <label for="input-addr">Address</label>
-                    <input type="input-addr" class="form-control" id="input-addr" name="input-addr" required>
+                    <label for="addr">Address</label>
+                    <input type="text" class="form-control" id="addr" name="addr" required>
                 </div>
             </div>
             <div class="row justify-content-center">
