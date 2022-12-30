@@ -89,7 +89,7 @@
                                     String strCheckIn = simpleDateFormat.format(checkIn);
                                     String strCheckOut = simpleDateFormat.format(checkOut);
                                     %>
-                                    <button class="dropdown-item" type= "summit" href="#" name ="reservID" value="<%= reservID %>" required><%= strCheckIn %> / <%= strCheckOut %>/ JEJU L4
+                                    <button class="dropdown-item" type= "summit" href="#" name ="reservID" value="<%= reservID %>" required><%= strCheckIn %> / <%= strCheckOut %> / JEJU L4
                                             HOTEL 
                                         </button>
 

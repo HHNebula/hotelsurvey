@@ -13,6 +13,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @WebServlet(urlPatterns = "/surveyServlets")
 public class SurveyServlets extends HttpServlet {
@@ -22,14 +23,17 @@ public class SurveyServlets extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         // 문항과 답항 받아오기
         SurveyWithDB surveyWithDB = new SurveyWithDB();
+        HttpSession httpSession = request.getSession();
 
         ArrayList<HashMap> bundle_list = null;
         ArrayList<HashMap> date_list = null;
-        String emails = request.getParameter("email");
+
+        // 세션에서 userId 가져오기
+        String user_IDs = (String) httpSession.getAttribute("userId");
 
         try {
             bundle_list = surveyWithDB.getList();
-            date_list = surveyWithDB.getDate(emails);
+            date_list = surveyWithDB.getDate(user_IDs);
         } catch (SQLException e) {
             e.printStackTrace();
         }
