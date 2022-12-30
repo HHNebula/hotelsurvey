@@ -27,14 +27,14 @@ public class Home extends HttpServlet {
         if (userId != null) {
             switch (userId) {
                 case "error":
-                    request.setAttribute("login", false);
+                    session.setAttribute("login", false);
                     break;
                 default:
-                    request.setAttribute("login", true);
+                    session.setAttribute("login", true);
                     break;
             }
         } else {
-            request.setAttribute("login", false);
+            session.setAttribute("login", false);
         }
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/jsp/prod/index.jsp");
