@@ -27,4 +27,5 @@ public class AttemptLogout extends HttpServlet {
         response.sendRedirect("/admin/login");
 
     }
+
 }
