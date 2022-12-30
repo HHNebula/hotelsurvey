@@ -10,8 +10,7 @@ import java.util.Date;
 public class Commons {
 
     public Statement getStatement() {
-        String url = "jdbc:mysql://localhost:3306/hotelsurvey?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
-        ";
+        String url = "jdbc:mysql://localhost:3306/hotelsurvey?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC";
         String user = "root";
         String password = "*khacademy!";
 
