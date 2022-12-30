@@ -22,6 +22,7 @@ public class StatisticsServlets extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         // 라디오 name 과 value 값 받기
+        String reservId = request.getParameter("reservID");
         String q1 = request.getParameter("Q1");
         String q2 = request.getParameter("Q2");
         String q3 = request.getParameter("Q3");
@@ -33,7 +34,7 @@ public class StatisticsServlets extends HttpServlet {
 
         try {
             statistic_list = surveyWithDB.getStatistics();
-            surveyWithDB.insertAnswer(q1, q2, q3, q4, q5);
+            surveyWithDB.insertAnswer(reservId, q1, q2, q3, q4, q5);
 
         } catch (SQLException e) {
             e.printStackTrace();

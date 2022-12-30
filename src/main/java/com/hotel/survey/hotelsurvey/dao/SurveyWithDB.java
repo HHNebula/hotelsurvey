@@ -227,17 +227,18 @@ public class SurveyWithDB {
     }
 
     // [GYEONG] 답받은 값 DB에 넣기
-    public void insertAnswer(String q1, String q2, String q3, String q4, String q5) throws SQLException {
+    public void insertAnswer(String reservId, String q1, String q2, String q3, String q4, String q5)
+            throws SQLException {
 
         Commons commons = new Commons();
         Statement statement = commons.getStatement();
 
         String query = " INSERT INTO SELECTIVE_SURVEYED " +
-                " VALUES ('R2', 'Q1', '" + q1 + "')," +
-                " ('R2', 'Q2', '" + q2 + "'), " +
-                " ('R2', 'Q3', '" + q3 + "'), " +
-                " ('R2', 'Q4', '" + q4 + "'), " +
-                " ('R2', 'Q5', '" + q5 + "') ";
+                " VALUES ('" + reservId + "', 'Q1', '" + q1 + "')," +
+                " ('" + reservId + "', 'Q2', '" + q2 + "'), " +
+                " ('" + reservId + "', 'Q3', '" + q3 + "'), " +
+                " ('" + reservId + "', 'Q4', '" + q4 + "'), " +
+                " ('" + reservId + "', 'Q5', '" + q5 + "') ";
 
         statement.execute(query);
 
