@@ -133,6 +133,28 @@ public class SurveyWithDB {
 
     }
 
+    // [SOO] 예약 정보의 집합을 반환
+    public ArrayList getReservInfo() throws SQLException {
+
+        Commons commons = new Commons();
+        Statement statement = commons.getStatement();
+        String query = "SELECT * FROM RESERVATIONS ORDER BY CHECK_IN_DATE";
+        ResultSet resultSet = statement.executeQuery(query);
+        ArrayList<HashMap> reservsInfo = new ArrayList<>();
+
+        while (resultSet.next()) {
+            HashMap<String, String> reserv = new HashMap<>();
+            reserv.put("USER_ID", resultSet.getString("RESERV_ID"));
+            reserv.put("EMAIL", resultSet.getString("USER_ID"));
+            reserv.put("PASSWORD", resultSet.getString("CHECK_IN_DATE"));
+            reserv.put("FRIST_NAME", resultSet.getString("CHECK_OUT_DATE"));
+            reservsInfo.add(reserv);
+        }
+
+        return reservsInfo;
+
+    }
+
     // [SOO] 어드민 정보가 정확한지 확인하여 반환
     public boolean isAdmin(String id, String pw) {
         try {
