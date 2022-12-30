@@ -32,10 +32,14 @@ public class Member extends HttpServlet {
         SurveyWithDB surveyWithDB = new SurveyWithDB();
         if (surveyWithDB.isAdmin(adminId, adminPw)) {
             // 로그인 되어있으면 데이터를 받아 jsp로 넘김
-            ArrayList<HashMap> usersInfo = new ArrayList<>();
-            request.setAttribute("usersInfo", usersInfo);
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/jsp/admin/member.jsp");
-            requestDispatcher.forward(request, response);
+            try {
+                ArrayList<HashMap> usersInfo = surveyWithDB.getUsersInfo();
+                request.setAttribute("usersInfo", usersInfo);
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("/jsp/admin/member.jsp");
+                requestDispatcher.forward(request, response);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         } else {
             // 로그인 안되어있으면 로그인 서블릿 호출
             session.invalidate();

@@ -54,14 +54,22 @@
                         <%
                             ArrayList<HashMap> usersInfo = (ArrayList<HashMap>) request.getAttribute("usersInfo");
                             for (int i = 0; i < usersInfo.size(); i++ ) {
-                                HashMap<String, String> userInfo = usersInfo.get(i);
+                                HashMap<String, String> userInfo = (HashMap<String, String>) usersInfo.get(i);
                         %>
                         <tr>
                             <td><%= userInfo.get("USER_ID") %></td>
-                            <td><%= userInfo.get("USER_ID") %></td>
+                            <td><%= userInfo.get("EMAIL") %></td>
+                            <td><%= userInfo.get("FRIST_NAME") %></td>
+                            <td><%= userInfo.get("LAST_NAME") %></td>
+                            <td><%= userInfo.get("TITLE_OF_HONOR") %></td>
+                            <td><%= userInfo.get("BIRTHDAY") %></td>
+                            <td><%= userInfo.get("COUNTRY") %></td>
+                            <td><%= userInfo.get("STATE") %></td>
+                            <td><%= userInfo.get("CITY") %></td>
+                            <td><%= userInfo.get("ADDRESS") %></td>
                         </tr>
                         <%
-                        }
+                            }
                         %>
                     </tbody>
                 </table>
