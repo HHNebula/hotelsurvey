@@ -36,7 +36,8 @@ public class AttemptSignup extends HttpServlet {
             // 중복이 아니라면
             if (!isOverlap) {
                 // 3. DB에 값 저장
-                System.out.println("중복 아님");
+                // dao > SurveyWithDB.java 파일에 위 값들을 담아 USER 테이블에 인서트하는 메서드를 생성한 뒤
+                // 파라메터에 담아 호출해주면 됩니당
             }
         } catch (SQLException e) {
             e.printStackTrace();
