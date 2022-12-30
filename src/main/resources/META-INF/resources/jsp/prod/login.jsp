@@ -86,23 +86,7 @@
     </main>
 
     <!-- Footer-->
-    <footer class="py-5 bg-dark">
-        <div class="container px-4 px-lg-5">
-            <p class="m-0 text-center text-white">Copyright &copy; Arendal Group</p>
-        </div>
-        <div class="d-flex justify-content-center text-center">
-            <a target="_blank" class="text-decoration-none text-white" href="https://github.com/HHNebula">
-                <i class="fs-1 bi bi-github text-white p-2"></i>
-                <br>
-                <span>SOO</span>
-            </a>
-            <a target="_blank" class="text-decoration-none text-white" href="https://github.com/HyeonTtora">
-                <i class="fs-1 bi bi-github text-white p-2"></i>
-                <br>
-                <span>JUNG</span>
-            </a>
-        </div>
-    </footer>
+    <%@ include file = "footer.jsp" %>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
