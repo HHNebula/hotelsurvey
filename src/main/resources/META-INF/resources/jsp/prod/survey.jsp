@@ -75,13 +75,12 @@
                                                 d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zM8.5 7a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM3 10.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1z" />
                                         </svg> Check In List
                                     </button>
-                                    <div class="dropdown-menu" aria-labelledby="triggerId" required>
+                                    <div class="dropdown-menu" id="reserv" aria-labelledby="triggerId" required>
                             
-                          <input type="hidden" name="reservID" value="R2" />
 
                             
+                          <%-- <input type="hidden" name="reservID" value="<%= reservId %>" /> --%>
                             <% 
-
                                 ArrayList<HashMap> date_list = (ArrayList<HashMap>)request.getAttribute("date_list"); 
                                 for (int i = 0; i < date_list.size(); i++) {
                                     HashMap<String, Object> date = (HashMap<String, Object>) date_list.get(i);
@@ -94,9 +93,9 @@
                                     String strCheckIn = simpleDateFormat.format(checkIn);
                                     String strCheckOut = simpleDateFormat.format(checkOut);
                                     %>
-                                    <button class="dropdown-item" type= "button" href="#" name ="reservID" value="<%= reservID %>" required><%= strCheckIn %> / <%= strCheckOut %> / JEJU L4
+                                    <a class="dropdown-item" type= "btn" href="#"  id="<%= reservID %>" required><%= strCheckIn %> / <%= strCheckOut %> / JEJU L4
                                             HOTEL 
-                                        </button>
+                                        </a>
 
                             
                              <%   }  %>
@@ -107,6 +106,7 @@
                                 </div>
                             </div>
                         </div>
+                             <div id = "reservhidden"></div>
                         <!-- 설문지&답항 -->
                         <div class="card mb-3 bg-opacity-50" style="width: 100%;">
                             <div class="card-header">Customer Satisfaction Survey</div>
@@ -213,7 +213,7 @@
             </a>
         </div>
     </footer>
-
+    <script type="text/javascript" src = "../../js/survey.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
