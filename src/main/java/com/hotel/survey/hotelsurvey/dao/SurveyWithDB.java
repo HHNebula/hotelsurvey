@@ -261,4 +261,18 @@ public class SurveyWithDB {
 
     }
 
+    public boolean isOverlap(String email) throws SQLException {
+
+        Commons commons = new Commons();
+        Statement statement = commons.getStatement();
+        String query = "SELECT EMAIL FROM USERS WHERE EMAIL = '" + email + "'";
+        ResultSet resultSet = statement.executeQuery(query);
+        if (resultSet.next()) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
 }
