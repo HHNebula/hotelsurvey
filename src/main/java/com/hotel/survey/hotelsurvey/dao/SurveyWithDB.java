@@ -144,10 +144,10 @@ public class SurveyWithDB {
 
         while (resultSet.next()) {
             HashMap<String, String> reserv = new HashMap<>();
-            reserv.put("USER_ID", resultSet.getString("RESERV_ID"));
-            reserv.put("EMAIL", resultSet.getString("USER_ID"));
-            reserv.put("PASSWORD", resultSet.getString("CHECK_IN_DATE"));
-            reserv.put("FRIST_NAME", resultSet.getString("CHECK_OUT_DATE"));
+            reserv.put("RESERV_ID", resultSet.getString("RESERV_ID"));
+            reserv.put("USER_ID", resultSet.getString("USER_ID"));
+            reserv.put("CHECK_IN_DATE", resultSet.getString("CHECK_IN_DATE"));
+            reserv.put("CHECK_OUT_DATE", resultSet.getString("CHECK_OUT_DATE"));
             reservsInfo.add(reserv);
         }
 
