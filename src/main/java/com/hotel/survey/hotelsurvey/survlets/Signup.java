@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import com.hotel.survey.hotelsurvey.dao.SurveyWithDB;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -17,32 +18,29 @@ public class Signup extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        // 1. 세션을 가져와 로그인 여부 체크
+        // 최초 사이트 접속 시 /home 서블릿 (Home.java) 에서
+        // login 값을 false로 저장함 (이후 로그인 로그아웃 서블릿에서 true / false 변환)
+        // login 값이 true 라면 로그인이 되어있는 상태임 > 회원가입 불필요(이미 회원) > /home 으로 랜딩
+        // login 값이 false 라면 로그아웃이 되어있는 상태입 > 회원가입 가능 상태 > 회원가입 jsp 호출
+
+        // 1. 세션을 가져옴
         HttpSession session = request.getSession();
 
-        // 2. 세션의 userId 가져옴
-        String userId = (String) session.getAttribute("userId");
-        
+        // 2. 세션에 저장된 boolean login 값을 가져옴
+        boolean login = (Boolean) session.getAttribute("login");
 
-         // 3. request.getAttribute("login"), false 면 signup.jsp 호출
-         // request.getAttribute("login"), true 면 /home 서블릿으로 보냄
-         
-         String path = null;
-         if(userId != null) {
-            switch(userId) {
-                case "error":
-                request.setAttribute("login", false);
-                break;
-            default:
-                request.setAttribute("login", true);
-                break;
-            }
-                response.sendRedirect("/home");
-            }else {
-                request.setAttribute("login", false);
-                 path = "jsp/prod/signup.jsp";
-            }
-            
+        // 3. login 값을 바탕으로 서블릿 or jsp 호출
+        if (login) { // 로그인이 되어있다면
+            // 서블릿 호출
+            response.sendRedirect("/home");
+            // 이 방식은 주소창의 url 자체를 바꿔버립니다.
+        } else { // 로그인이 안되어있다면
+            // jsp 파일을 호출
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/jsp/prod/signup.jsp");
+            requestDispatcher.forward(request, response);
+            // 이방식은 주소창의 url은 유지하되 화면에 jsp파일을 뿌립니다.
+        }
+
     }
 
 }
