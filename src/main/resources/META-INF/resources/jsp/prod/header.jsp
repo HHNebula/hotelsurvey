@@ -24,3 +24,5 @@
             <a href="/login" type="button" class="btn btn-outline-light me-2">Log In</a>
             <a href="./signup.html" type="button" class="btn btn-light">Sign Up</a>
         <% } %>
+        </div>
+    </header>
