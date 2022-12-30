@@ -34,74 +34,75 @@
         <div class="col-md-3 text-end">
             <a href="./login.html" type="button" class="btn btn-outline-light me-2">Log In</a>
             <a href="./signup.html" type="button" class="btn btn-light">Sign Up</a>
-
         </div>
     </header>
 
     <main class="container mt-5 pt-5 py-sm-5 py-md-0 px-5 px-lg-5">
         <div class="pt-5 pt-sm-0 text-center mb-3 border-bottom">
             <div class="">
-                <p class="fw-bold fs-1">Welcome to the World of L4 Hotel!</p>
+                <p class="fw-bold fs-1">Find ID / PW</p>
                 <img class="" src="../img/hotelimg.png" alt="">
             </div>
         </div>
-
-
-        
-        <form action="/login/attemptlogin" class="mb-5" method="post">
-
+        <div class="text-center m-3">
+            Please enter the email and last name you entered when you signed up.<br>
+            A temporary password will be sent by email.
+        </div>
+       
+        <!-- FORM -->
+        <form action="/home" class="mb-5">
             <div class="row justify-content-center">
                 <div class="form-group col-12 col-md-4 my-1">
-                    <label for="userEmail">Email</label>
-                    <input type="text" name="userEmail" class="form-control" id="userEmail" placeholder="example@example.com" required>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="form-group col-12 col-md-4 my-1">
-                    <label for="userPassword">Password</label>
-                    <input type="password" name="userPassword" class="form-control" id="userPassword" required>
+                    <label for="input-login-email">Email</label>
+                    <input type="text" class="form-control" id="input-login-email" placeholder="example@example.com"
+                        name="input-login-email" required>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="form-group col-12 col-md-4 mb-3">
-                    <input type="checkbox" name="remember" id="remember">
-                    <label for="remember">remember me</label>
-                </div>
-
-
-
-            </div>
-            <div class="row justify-content-center text-center">
-                <div class="form-group col-12 col-md-4 my-1">
-                    <input class="btn btn-dark w-100" type="submit" value="Log in">
+                    <label for="input-first-email">Name</label>
+                    <input type="text" class="form-control" id="input-name" placeholder="Jason Mraz" name="input-name"
+                        required>
                 </div>
             </div>
-            
-            <%-- 일치하는 정보가 없을때 알럿  --%>
-            <% if ((String) session.getAttribute("error") != null) { %>
-            
-            <div class="alert alert-warning alert-dismissible fade show form-group col-12 col-md-4 my-1" role="alert">
-            <i class="bi bi-patch-exclamation-fill"></i>
-             일치하는 정보가 없습니다.<strong><a href="./forget_id_pw.jsp" class="alert-link">ID/Password를</a></strong>확인해주세요 
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
 
-            
-             <% } %>
-
-            <div class="row justify-content-center text-center">
-                <div class="form-group col-12 col-md-4 my-1">
-                    <a href="./forget_id_pw.jsp" class="btn btn-outline-dark w-100">Forget Email or Password?</a>
+            <div class="row justify-content-center">
+                <div class="form-group col-12 col-md-4 mb-3">
+                    <button type="button" class="btn btn-dark w-100" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        submit
+                    </button>
                 </div>
             </div>
-            <div class="row justify-content-center text-center">
-                <div class="form-group col-12 col-md-4 my-1">
-                    <a href="./signup.html" class="btn btn-outline-dark w-100">Is this your first time at the L4
-                        hotel?</a>
+            <!-- Submit Button modal-->
+            <div class=" d-flex justify-content-center">
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Forget E-Mail</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <!--Submit modal Text-->
+                            <div class="modal-body text-lg-start">
+                                입력된 정보가 일치하는 경우 이메일로 임시 비밀번호가 발급됩니다.
+                                <hr>
+                                If the information entered matches,<br>
+                                a temporary password will be issued by email.
+                            </div>
+                            <!-- modal Agree & close Button -->
+                            <div class="modal-footer d-flex justify-content-center">
+                                <button type="submit" class="btn btn-dark w-50" data-bs-dismiss="modal">OK</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </form>
     </main>
+
 
     <!-- Footer-->
     <footer class="py-5 bg-dark">
@@ -125,7 +126,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
-        
+
 </body>
 
 </html>
