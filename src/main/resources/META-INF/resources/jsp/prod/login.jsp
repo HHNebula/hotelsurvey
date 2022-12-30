@@ -61,12 +61,13 @@
             <%-- 일치하는 정보가 없을때 알럿  --%>
             <% if ((String) session.getAttribute("error") != null) { %>
             
-            <div class="alert alert-warning alert-dismissible fade show form-group col-12 col-md-4 my-1" role="alert">
+              <div class="row justify-content-center text-center">
+            <div class="alert alert-warning alert-dismissible fade show form-group col-12 col-md-4 my-1 " role="alert">
             <i class="bi bi-patch-exclamation-fill"></i>
-             일치하는 정보가 없습니다.<strong><a href="./forget_id_pw.jsp" class="alert-link">ID/Password를</a></strong>확인해주세요 
+             일치하는 정보가 없습니다.<br><strong><a href="./forget_id_pw.jsp" class="alert-link">ID/Password를</a></strong>확인해주세요 
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-
+            </div>
             
              <% } %>
 
