@@ -145,7 +145,9 @@ public class SurveyWithDB {
         while (resultSet.next()) {
             HashMap<String, String> reserv = new HashMap<>();
             reserv.put("RESERV_ID", resultSet.getString("RESERV_ID"));
-            reserv.put("USER_ID", resultSet.getString("USER_ID"));
+            String userId = resultSet.getString("USER_ID");
+            String userName = this.getName(userId);
+            reserv.put("USER_NAME", userName);
             reserv.put("CHECK_IN_DATE", resultSet.getString("CHECK_IN_DATE"));
             reserv.put("CHECK_OUT_DATE", resultSet.getString("CHECK_OUT_DATE"));
             reservsInfo.add(reserv);
@@ -153,6 +155,21 @@ public class SurveyWithDB {
 
         return reservsInfo;
 
+    }
+
+    public String getName(String userId) throws SQLException {
+        Commons commons = new Commons();
+        Statement statement = commons.getStatement();
+        String query = "SELECT TITLE_OF_HONOR, FRIST_NAME, LAST_NAME FROM USERS WHERE USER_ID = '" + userId + "'";
+        ResultSet resultSet = statement.executeQuery(query);
+        String userName = null;
+
+        while (resultSet.next()) {
+            HashMap<String, String> reserv = new HashMap<>();
+            userName = resultSet.getString("TITLE_OF_HONOR") + " " + resultSet.getString("FRIST_NAME") + " "
+                    + resultSet.getString("LAST_NAME");
+        }
+        return userName;
     }
 
     // [SOO] 어드민 정보가 정확한지 확인하여 반환

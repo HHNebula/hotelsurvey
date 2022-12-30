@@ -38,35 +38,23 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th scope="col">UID</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">First Name</th>
-                            <th scope="col">Last Name</th>
-                            <th scope="col">Title of Honor</th>
-                            <th scope="col">Birthday</th>
-                            <th scope="col">Country</th>
-                            <th scope="col">State</th>
-                            <th scope="col">City</th>
-                            <th scope="col">Address</th>
+                            <th scope="col">Reservation ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Check in</th>
+                            <th scope="col">Check out</th>
                         </tr>
                     </thead>
                     <tbody>
                         <%
-                            ArrayList<HashMap> usersInfo = (ArrayList<HashMap>) request.getAttribute("usersInfo");
-                            for (int i = 0; i < usersInfo.size(); i++ ) {
-                                HashMap<String, String> userInfo = (HashMap<String, String>) usersInfo.get(i);
+                            ArrayList<HashMap> reservsInfo = (ArrayList<HashMap>) request.getAttribute("reservsInfo");
+                            for (int i = 0; i < reservsInfo.size(); i++ ) {
+                                HashMap<String, String> reservInfo = (HashMap<String, String>) reservsInfo.get(i);
                         %>
                         <tr>
-                            <td><%= userInfo.get("USER_ID") %></td>
-                            <td><%= userInfo.get("EMAIL") %></td>
-                            <td><%= userInfo.get("FRIST_NAME") %></td>
-                            <td><%= userInfo.get("LAST_NAME") %></td>
-                            <td><%= userInfo.get("TITLE_OF_HONOR") %></td>
-                            <td><%= userInfo.get("BIRTHDAY") %></td>
-                            <td><%= userInfo.get("COUNTRY") %></td>
-                            <td><%= userInfo.get("STATE") %></td>
-                            <td><%= userInfo.get("CITY") %></td>
-                            <td><%= userInfo.get("ADDRESS") %></td>
+                            <td><%= reservInfo.get("RESERV_ID") %></td>
+                            <td><%= reservInfo.get("USER_NAME") %></td>
+                            <td><%= reservInfo.get("CHECK_IN_DATE") %></td>
+                            <td><%= reservInfo.get("CHECK_OUT_DATE") %></td>
                         </tr>
                         <%
                             }

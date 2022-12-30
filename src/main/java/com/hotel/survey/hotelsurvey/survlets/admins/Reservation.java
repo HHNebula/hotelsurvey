@@ -33,7 +33,7 @@ public class Reservation extends HttpServlet {
         if (surveyWithDB.isAdmin(adminId, adminPw)) {
             // 로그인 되어있으면 데이터를 받아 jsp로 넘김
             try {
-                ArrayList<HashMap> reservsInfo = surveyWithDB.getUsersInfo();
+                ArrayList<HashMap> reservsInfo = surveyWithDB.getReservInfo();
                 request.setAttribute("reservsInfo", reservsInfo);
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("/jsp/admin/reservation.jsp");
                 requestDispatcher.forward(request, response);
