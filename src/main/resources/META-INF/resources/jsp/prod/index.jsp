@@ -39,7 +39,10 @@
             <a href="/logout/attemptlogin" type="button" class="btn btn-outline-light me-2">Log Out</a>
         <%
             } else {
+                session.invalidate();
+                //세션 만료 (login 알럿 표출 )
         %>
+
             <a href="/login" type="button" class="btn btn-outline-light me-2">Log In</a>
             <a href="./signup.html" type="button" class="btn btn-light">Sign Up</a>
         <% } %>
