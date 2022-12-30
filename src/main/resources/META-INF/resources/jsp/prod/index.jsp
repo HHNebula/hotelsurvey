@@ -40,7 +40,7 @@
         <%
             } else {
                 session.invalidate();
-                //세션 만료 (login 알럿 표출 )
+                //세션 만료 (login 알럿 표출을 위해 )
         %>
 
             <a href="/login" type="button" class="btn btn-outline-light me-2">Log In</a>
