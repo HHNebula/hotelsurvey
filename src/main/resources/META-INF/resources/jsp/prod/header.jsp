@@ -1,6 +1,6 @@
     <header
         class="container-fluid bg-dark d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 fixed-top">
-        <a href="./index.html"
+        <a href="/home"
             class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-white text-decoration-none fs-4">
             <img src="./img/logo.png" alt="" style="height: 30px;">
             <span class="ms-2">World of L4 Hotel</span>
