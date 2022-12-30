@@ -22,7 +22,6 @@ public class AttemptLogin extends HttpServlet {
         // 1. 입력한 아이디와 비밀번호를 가져옴
         String adminId = request.getParameter("adminId");
         String adminPw = request.getParameter("adminPw");
-        String path = null;
         HttpSession session = request.getSession();
         // 2. 입력한 아이디와 비밀번호가 유효한지 검사함
         SurveyWithDB surveyWithDB = new SurveyWithDB();
