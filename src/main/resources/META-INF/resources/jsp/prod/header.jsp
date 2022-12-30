@@ -14,7 +14,7 @@
 
         <div class="col-md-3 text-end">
         <%
-            boolean isLogin = (boolean) request.getAttribute("login");
+            boolean isLogin = (boolean) session.getAttribute("login");
             if (isLogin) {
         %>
             <a href="/logout/attemptlogin" type="button" class="btn btn-outline-light me-2">Log Out</a>
@@ -24,5 +24,3 @@
             <a href="/login" type="button" class="btn btn-outline-light me-2">Log In</a>
             <a href="./signup.html" type="button" class="btn btn-light">Sign Up</a>
         <% } %>
-        </div>
-    </header>

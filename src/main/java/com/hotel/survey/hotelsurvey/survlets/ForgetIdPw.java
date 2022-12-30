@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet(urlPatterns = "/forget_id_pw")
-public class forget_id_pw extends HttpServlet{
+public class ForgetIdPw extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -22,5 +22,3 @@ public class forget_id_pw extends HttpServlet{
     }
 
 }
-
-
