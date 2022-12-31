@@ -22,7 +22,7 @@
 
     <!-- main -->
     <main class="mt-5 pt-5 py-sm-5 py-md-0 px-5 px-lg-5">
-        <form action="/statisticsServlets" >
+        <form action="/statisticsServlets" method="post">
                     <%-- 중복설문으로 되돌아왔을때 --%>
             <% if ((String) request.getAttribute("error") != null) { %>         
              <div class="row justify-content-center text-center">

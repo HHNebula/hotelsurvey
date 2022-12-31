@@ -43,12 +43,14 @@ public class StatisticsServlets extends HttpServlet {
 
         try {
             isReservIdDup = surveyWithDB.isReservIdDup(reservId);
-            if (reservId != null) {
+            // 답항들이 모두 입력되어야만 DB에 입력함
+            if (reservId != null || q1 != null || q2 != null || q3 != null || q4 != null || q5 != null) {
+                // 투숙날짜가 중복된 설문 거르기
                 if (!isReservIdDup) {
                     surveyWithDB.insertAnswer(reservId, q1, q2, q3, q4, q5);
                     surveyWithDB.insertDesc(reservId, answer);
                 } else {
-
+                    // 중복 설문이라면 다시 설문페이지로 되돌리기
                     String user_IDs = (String) session.getAttribute("userId");
                     request.setAttribute("error", "이미 작성된 설문입니다.");
 
@@ -74,6 +76,11 @@ public class StatisticsServlets extends HttpServlet {
         SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        this.doGet(req, resp);
     }
 
 }
