@@ -238,6 +238,8 @@ public class SurveyWithDB {
             date_list.add(dates);
 
         }
+        resultSet.close();
+        statement.close();
 
         return date_list;
 
@@ -259,6 +261,21 @@ public class SurveyWithDB {
 
         statement.execute(query);
 
+        statement.close();
+
+    }
+
+    // [GYEONG] 주관식 답 DB에 넣기
+    public void insertDesc(String reservId, String answer) throws SQLException {
+        Commons commons = new Commons();
+        Statement statement = commons.getStatement();
+
+        String query = " INSERT INTO descriptive_surveyed VALUES ('" + reservId + "', 'DQ1', '" + answer + "')";
+
+        statement.execute(query);
+
+        statement.close();
+
     }
 
     public boolean isOverlap(String email) throws SQLException {
@@ -266,6 +283,21 @@ public class SurveyWithDB {
         Commons commons = new Commons();
         Statement statement = commons.getStatement();
         String query = "SELECT EMAIL FROM USERS WHERE EMAIL = '" + email + "'";
+        ResultSet resultSet = statement.executeQuery(query);
+        if (resultSet.next()) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    // [GYEONG] 이미 등록되어있는 숙박날짜의 설문인지 알기위해 테이블에서 RESERV_ID 추출
+    public boolean isReservIdDup(String reservId) throws SQLException {
+        Commons commons = new Commons();
+        Statement statement = commons.getStatement();
+        String query = "SELECT RESERV_ID FROM SELECTIVE_SURVEYED WHERE RESERV_ID = '" + reservId + "'";
+
         ResultSet resultSet = statement.executeQuery(query);
         if (resultSet.next()) {
             return true;

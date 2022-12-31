@@ -23,6 +23,16 @@
     <!-- main -->
     <main class="mt-5 pt-5 py-sm-5 py-md-0 px-5 px-lg-5">
         <form action="/statisticsServlets" >
+                    <%-- 중복설문으로 되돌아왔을때 --%>
+            <% if ((String) request.getAttribute("error") != null) { %>         
+             <div class="row justify-content-center text-center">
+            <div class="alert alert-info alert-dismissible fade show form-group col-13 col-md-5 my-2 " role="alert">
+            <i class="bi bi-patch-exclamation-fill"></i>
+            이미 작성한 설문입니다.<br><strong><a href="/surveyServlets" class="alert-link">Check In/Out 날짜</a></strong>를 확인해주세요. 
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            </div>
+             <% } %>
             <!-- 호텔로고 & 설문안내 -->
             <div class="card text-center align-items-center text-secondary">
                 <img class="card-img-top" src="../img/hotelimg.png" alt="Card image cap" style="width: 400px;">
@@ -55,7 +65,7 @@
                                             fill="currentColor" class="bi bi-calendar2-week-fill" viewBox="0 0 16 16">
                                             <path
                                                 d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zM8.5 7a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM3 10.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1z" />
-                                        </svg> Check In List
+                                        </svg> Check In / Out List
                                     </button>
                                     <div class="dropdown-menu" id="reserv" aria-labelledby="triggerId" required>
                             
@@ -134,8 +144,8 @@
                                         leave your
                                         valuable comments </p>
                                     <div class="form-floating">
-                                        <textarea class="form-control" placeholder="Leave a comment here"
-                                            id="floatingTextarea2" style="height: 200px"></textarea>
+                                        <textarea class="form-control" type="text" placeholder="Leave a comment here"
+                                            name="ANSWER" id="floatingTextarea2" style="height: 200px"></textarea>
                                         <label for="floatingTextarea2"
                                             class="text-secondary opacity-25">Comments</label>
                                     </div>
@@ -175,6 +185,7 @@
                         </div>
                     </div>
                 </div>
+
         </form>
     </main>
     <!-- Footer-->
