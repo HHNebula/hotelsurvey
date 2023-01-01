@@ -26,39 +26,97 @@
             </div>
             <div class="col-12 col-md-4">
                 <div>
-                    <a href="/admin/survey" class="btn btn-dark w-100">설문현황</a>
+                    <a href="/admin/survey?target=Q1" class="btn btn-dark w-100">설문현황</a>
                 </div>
             </div>
         </div>
         <div class="text-center">
         <a href="/admin/attemptlogout" class="btn btn-outline-dark text-center">Log Out</a>
         </div>
+        <div class="my-5">
+            <a href="/admin/survey?target=Q1" class="btn btn-outline-dark text-center">접근 편의성</a>
+            <a href="/admin/survey?target=Q2" class="btn btn-outline-dark text-center">직원 친절도</a>
+            <a href="/admin/survey?target=Q3" class="btn btn-outline-dark text-center">호텔 청결도</a>
+            <a href="/admin/survey?target=Q4" class="btn btn-outline-dark text-center">음식 만족도</a>
+            <a href="/admin/survey?target=Q5" class="btn btn-outline-dark text-center">시설 편리성</a>
+            <a href="/admin/survey?target=descriptive" class="btn btn-outline-dark text-center">주관식 응답</a>
+        </div>
         <div class="row my-5">
+            <%
+                String target = request.getParameter("target");
+            %>
             <div class="col-12">
+            <div class="fs-3">
+                <% switch (target) {
+                    case "Q1" :
+                %>
+                    접근 편의성
+                <%
+                    break;
+                    case "Q2" :
+                %>
+                    직원 친절도
+                                <%
+                    break;
+                    case "Q3" :
+                %>
+                    호텔 청결도
+                <%
+                    break;
+                    case "Q4" :
+                %>
+                    음식 만족도
+                <%
+                    break;
+                    case "Q5" :
+                %>
+                    시설 편리성
+                <%
+                    break;
+                    case "descriptive" :
+                %>
+                    주관식 응답
+                <%
+                    break;
+                } %>
+            </div>
                 <table class="table table-striped">
+                    <%
+                        if (target.equals("descriptive")) {
+                    %>
                     <thead>
                         <tr>
-                            <th scope="col">Reservation ID</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Check in</th>
-                            <th scope="col">Check out</th>
+                            <th scope="col">주관식 응답 내용</th>
                         </tr>
                     </thead>
+                    <%
+                        } else {
+                    %>
+                    <thead>
+                        <tr>
+                            <th scope="col">매우 만족</th>
+                            <th scope="col">만족</th>
+                            <th scope="col">보통</th>
+                            <th scope="col">불만</th>
+                            <th scope="col">매우불만</th>
+                        </tr>
+                    </thead>
+                    <%
+                        }
+                    %>
                     <tbody>
                         <%
-                            ArrayList<HashMap> statistics = (ArrayList<HashMap>) request.getAttribute("statistics");
-                            for (int i = 0; i < reservsInfo.size(); i++ ) {
-                                HashMap<String, String> reservInfo = (HashMap<String, Object>) reservsInfo.get(i);
-                        %>
-                        <tr>
-                            <td><%= reservInfo.get("RESERV_ID") %></td>
-                            <td><%= reservInfo.get("USER_NAME") %></td>
-                            <td><%= reservInfo.get("CHECK_IN_DATE") %></td>
-                            <td><%= reservInfo.get("CHECK_OUT_DATE") %></td>
+                            ArrayList<String> result = (ArrayList<String>) request.getAttribute("result");
+                            if (target.equals("descriptive")) {
+                                for (int i = 0; i < result.size(); i++ ) { %>
+                                <tr>
+                                    <td><%= result.get(i) %></td>
+                                </tr>
+                        <% } } else { for (int i = 0; i < result.size(); i++ ) { %>
+                            <td><%= result.get(i) %></td>
+                        <% } %>
                         </tr>
-                        <%
-                            }
-                        %>
+                        <% } %>
                     </tbody>
                 </table>
             </div>

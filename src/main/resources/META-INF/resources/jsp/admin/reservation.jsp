@@ -26,7 +26,7 @@
             </div>
             <div class="col-12 col-md-4">
                 <div>
-                    <a href="/admin/survey" class="btn btn-dark w-100">설문현황</a>
+                    <a href="/admin/survey?target=Q1" class="btn btn-dark w-100">설문현황</a>
                 </div>
             </div>
         </div>

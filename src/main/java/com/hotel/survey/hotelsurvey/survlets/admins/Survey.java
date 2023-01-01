@@ -33,8 +33,9 @@ public class Survey extends HttpServlet {
         if (surveyWithDB.isAdmin(adminId, adminPw)) {
             // 로그인 되어있으면 데이터를 받아 jsp로 넘김
             try {
-                ArrayList<HashMap> statistics = surveyWithDB.getStatistics();
-                request.setAttribute("statistics", statistics);
+                String target = request.getParameter("target");
+                ArrayList<String> result = surveyWithDB.adminStatistics(target);
+                request.setAttribute("result", result);
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("/jsp/admin/survey.jsp");
                 requestDispatcher.forward(request, response);
             } catch (Exception e) {

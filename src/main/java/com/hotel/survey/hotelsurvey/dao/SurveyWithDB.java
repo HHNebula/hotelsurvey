@@ -297,7 +297,6 @@ public class SurveyWithDB {
         Commons commons = new Commons();
         Statement statement = commons.getStatement();
         String query = "SELECT RESERV_ID FROM SELECTIVE_SURVEYED WHERE RESERV_ID = '" + reservId + "'";
-
         ResultSet resultSet = statement.executeQuery(query);
         if (resultSet.next()) {
             return true;
@@ -305,6 +304,42 @@ public class SurveyWithDB {
             return false;
         }
 
+    }
+
+    // [SOO] admin 전용 설문 출력
+    public ArrayList adminStatistics(String target) {
+        ArrayList<String> result = new ArrayList<>();
+        Commons commons = new Commons();
+        Statement statement = commons.getStatement();
+        String query;
+        ResultSet resultSet;
+        try {
+            if (target.equals("descriptive")) {
+                query = "SELECT ANSWER FROM DESCRIPTIVE_SURVEYED";
+                resultSet = statement.executeQuery(query);
+                while (resultSet.next()) {
+                    result.add(resultSet.getString("ANSWER"));
+                }
+            } else {
+                query = "SELECT COUNT(CASE WHEN ANSWER_ID = 'A1' THEN 1 END ) AS 'A1', "
+                        + "COUNT(CASE WHEN ANSWER_ID = 'A2' THEN 1 END ) AS 'A2', "
+                        + "COUNT(CASE WHEN ANSWER_ID = 'A3' THEN 1 END ) AS 'A3', "
+                        + "COUNT(CASE WHEN ANSWER_ID = 'A4' THEN 1 END ) AS 'A4', "
+                        + "COUNT(CASE WHEN ANSWER_ID = 'A5' THEN 1 END ) AS 'A5' "
+                        + "FROM SELECTIVE_SURVEYED WHERE QUESTION_ID ='" + target + "'";
+                resultSet = statement.executeQuery(query);
+                while (resultSet.next()) {
+                    result.add(resultSet.getString("A1"));
+                    result.add(resultSet.getString("A2"));
+                    result.add(resultSet.getString("A3"));
+                    result.add(resultSet.getString("A4"));
+                    result.add(resultSet.getString("A5"));
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 
 }
