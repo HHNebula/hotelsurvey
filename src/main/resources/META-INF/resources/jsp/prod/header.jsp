@@ -1,7 +1,7 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
     <header
         class="container-fluid bg-dark d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 fixed-top">
-        <a href="/home"
-            class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-white text-decoration-none fs-4">
+        <a href="/home" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-white text-decoration-none fs-4">
             <img src="./img/logo.png" alt="" style="height: 30px;">
             <span class="ms-2">World of L4 Hotel</span>
         </a>
@@ -13,16 +13,11 @@
         </ul>
 
         <div class="col-md-3 text-end">
-        <%
-            boolean isLogin = (boolean) session.getAttribute("login");
-            if (isLogin) {
-        %>
-            <a href="/logout/attemptlogin" type="button" class="btn btn-outline-light me-2">Log Out</a>
-        <%
-            } else {
-        %>
-            <a href="/login" type="button" class="btn btn-outline-light me-2">Log In</a>
-            <a href="/signup" type="button" class="btn btn-light">Sign Up</a>
-        <% } %>
+            <% boolean isLogin=(boolean) session.getAttribute("login"); if (isLogin) { %>
+                <a href="/logout/attemptlogin" type="button" class="btn btn-outline-light me-2">Log Out</a>
+                <% } else { %>
+                    <a href="/login" type="button" class="btn btn-outline-light me-2">Log In</a>
+                    <a href="/signup" type="button" class="btn btn-light">Sign Up</a>
+                    <% } %>
         </div>
     </header>
