@@ -43,8 +43,8 @@ public class StatisticsServlets extends HttpServlet {
 
         try {
             isReservIdDup = surveyWithDB.isReservIdDup(reservId);
-            // 답항들이 모두 입력되어야만 DB에 입력함
-            if (reservId != null || q1 != null || q2 != null || q3 != null || q4 != null || q5 != null) {
+            // 답항들이 모두 입력되어야만 DB에 입력
+            if (reservId != null && q1 != null && q2 != null && q3 != null && q4 != null && q5 != null) {
                 // 투숙날짜가 중복된 설문 거르기
                 if (!isReservIdDup) {
                     surveyWithDB.insertAnswer(reservId, q1, q2, q3, q4, q5);
