@@ -345,7 +345,9 @@ public class SurveyWithDB {
     public void insertUser(String[] userInfo) {
         Commons commons = new Commons();
         Statement statement = commons.getStatement();
-        String query = "INSERT INTO USERS VALUES ('" + userInfo[0] + "', '" + userInfo[1] + "', '" + userInfo[2]
+        String userId = getInsertUserId();
+        String query = "INSERT INTO USERS VALUES ('" + userId + "', '" + userInfo[0] + "', '" + userInfo[1] + "', '"
+                + userInfo[2]
                 + "', '" + userInfo[3] + "', '" + userInfo[4] + "', '" + userInfo[5] + "', '" + userInfo[6] + "', '"
                 + userInfo[7] + "', '" + userInfo[8] + "', '" + userInfo[9] + "')";
 
@@ -354,6 +356,22 @@ public class SurveyWithDB {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public String getInsertUserId() {
+        Commons commons = new Commons();
+        Statement statement = commons.getStatement();
+        String query = "SELECT COUNT(USER_ID) AS COUNT FROM USERS";
+        String result = null;
+        try {
+            ResultSet resultSet = statement.executeQuery(query);
+            resultSet.next();
+            int count = resultSet.getInt("COUNT");
+            result = "U" + (count + 1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 
 }
