@@ -68,17 +68,12 @@
                                         </svg> Check In / Out List
                                     </button>
                                     <div class="dropdown-menu" id="reserv" aria-labelledby="triggerId" required>
-                            
-
-                            
-                          <%-- <input type="hidden" name="reservID" value="<%= reservId %>" /> --%>
+                        
                             <% 
                                 ArrayList<HashMap> date_list = (ArrayList<HashMap>)request.getAttribute("date_list"); 
                                 for (int i = 0; i < date_list.size(); i++) {
                                     HashMap<String, Object> date = (HashMap<String, Object>) date_list.get(i);
                                     String reservID = (String) date.get("RESERV_ID");
-                                    String userID = (String) date.get("USER_ID");
-                                    String email = (String) date.get("EMAIL");
                                     Timestamp checkIn = (Timestamp) date.get("CHECK_IN_DATE");
                                     Timestamp checkOut = (Timestamp) date.get("CHECK_OUT_DATE"); 
                                     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy년 MM월 dd일");
