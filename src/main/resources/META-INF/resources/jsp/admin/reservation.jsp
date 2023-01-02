@@ -18,6 +18,7 @@
                 <%@ include file="adminheader.jsp" %>
                     <div class="row my-5">
                         <div class="col-12">
+                            <div class="fs-3">예약 현황</div>
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
