@@ -19,43 +19,74 @@ Survey 필수 입력란 미입력 시 사용자에게 알람을 주어 설문/�
  HTML의 required 속성으로 필수 입력란 미입력 시 사용자에게 알람을 주어 설문/회원가입/로그인/ID,PW찾기 등의 필수 입력란을 놓치지 않습니다.
 ### 🛠 기능 요약  
 - UserPage
-1. [SingUp] 회원가입 후 가입한 ID/PW로 LogIn-Out 기능 구현 
+1. [SingUp] User의 입력 값을 통한 회원가입 & 중복방지 구현
 
-2. [Survey] User 정보의 실제 Check_IN 일자 검증 후 Survey 작성할 수 있도록 구현  
-    1건의 Check_IN 기록에는 1건의 Survey 작성할 수 있도록 구현 (중복방지)  
+2. [Log in&Out] 가입한 ID/PW로 Log in&Out 기능 & Login상태에 따른 동적 상태 구현
+
+2. [Survey] Check_IN 날짜 유효성 검증을 통한 Survey 중복 방지 구현 & Survey DB연결 및 출력 구현 
       
-3.  [Statistics] 전체 Survey 작성자의 항목별 응답 개수 통계 구현 
+3.  [Statistics] 전체 Survey 제출 건의 항목별 응답 갯수 Statistics 구현 
 
-2.  [Home&Navbar] Login 상태에 따른 동적 네비바 구현 및 전체 메뉴 이동 구현    
+2.  [Home&Navbar] Login 상태에 따른 동적 화면 및 전체 메뉴 이동 구현    
 
 - AdminPage
-어드민 로그인 / 회원 현황 조회 / 예약 현황 조회 / 항목별 설문 현황 조회 /
-1.  [Login] 
+
+1. [Admin Log in&Out] 등록된 Admin ID/PW로 Log in&Out 기능 & Login상태에 따른 동적 화면 구현
+
+2. [UserStatus] 가입한 전체 User 회원 정보 조회 구현 
+
+3. [Reservation]  전체 User의 예약 현황 조회 구현 
+
+4. [Statistics] 전체 Survey 제출 건의 항목별 응답 갯수 Statistics 구현 
+
 -----------------------
 
 ### ⏰ 개발 기간
-[1차]2022년 11월 10일 ~ 2022년 11월 11일  
-[2차]2022년 12월 8일 ~ 2022년 12월 9일 
-### 📌 기술
-HTML, CSS , Bootstrap
-VisualStudioCode, git  
+[1차]2022년 12월 27일 ~ 2023년 1월 1일  
+
+### 📌 Technical stack
+![Generic badge](https://img.shields.io/badge/Java-yellow.svg)  ![Generic badge](https://img.shields.io/badge/Survlet-blue.svg)  ![Generic badge](https://img.shields.io/badge/JSP-red.svg)  ![Generic badge](https://img.shields.io/badge/JDBC-skyblue.svg)  ![Generic badge](https://img.shields.io/badge/Bootstrap-purple.svg) ![Generic badge](https://img.shields.io/badge/CSS-yellowgreen.svg) ![Generic badge](https://img.shields.io/badge/HTML-green.svg) 
+![Generic badge](https://img.shields.io/badge/VisualStudioCode-orange.svg)
+![Generic badge](https://img.shields.io/badge/MySQL-skyblue.svg)
+![Generic badge](https://img.shields.io/badge/Tomecat-gree.svg)                
 
 ### 🔍<ㅎㅎ> 팀 멤버 한줄 소개  
    
 ### 👨‍💻 하성수(팀장)  
-스토리보드 작성, PPT 작성
-공통 화면, 홈 화면, 설문 통계 화면, 회원 가입 화면 설계 및 구현  
+
+팀원 업무분담 , 전체 코드리뷰    
+ERD, SQL, ddl, dml  
+User&Admin Page Log in&out 여부에 따른 동적 nav 구현  
+Admin Page Backend & Admin Page Frontend 전체 구현  
+(Admin Log in&Out ,UserStatus,Reservation,Statistics)  
+  
 
 ### 👩‍💻 김현정  
-스토리보드 작성, Git 관리, 업무 흐름도 제작
-로그인 화면, 설문지 화면,  아이디, 비밀번호 찾기 화면 설계 및 구현
+Git 관리, 기능별 영상 촬영 & ReadMe 관리 , 전체 코드리뷰  
+User Page Frontend 구현 및 보수    
+User Page Login-Out 기능 구현    
+User & Admin Page Login 실패 확인 기능 (Alert) 구현  
+
+
+### 👨‍💻 진보경 
+
+UserPage Survey 문항/답항 DB 연결 및 Survey 구현 및 제출된 Survey를 DB 입력 기능 구현  
+Login UserID 통해 Check-IN&Out List 출력  
+Check_IN 날짜 유효성 검증을 통한 Survey 중복 방지 구현(Alert) & Survey DB연결 및 출력    
+Survey 제출 건의 항목별 응답 갯수 Statistics 구현 Survey 작성 시 객관식 문항 or Check-IN 미입력 방지 구현  
+
+### 👩‍💻 류연주  
+코드 유지보수 관리, 통합 기능 구현 테스트(QC)    
+UserPage SignUp 시도 시 기존 가입자 Email과 중복 방지 기능 구현  
+UserPage SignUp 기능 구현   
+UserPage & AdminPage 구현 테스트 및 동영상 촬영  
 
 
 -----------------------
 ### 🔗 라이브 영상  
-- [JEJU L4 Hotel Survey_Live](https://www.youtube.com/watch?v=qNAzFQ3t0SM)  
+- [L4 Hotel Survey JEJU (UserPage)_Live](https://www.youtube.com/watch?v=Rg0f_bUsdBU)  
   
-### 💻 CodeArchitecture  
+### 💻 ERD
 - [CodeArchitecture](./docs/Storyboard/codearchitectures.png)  
 
 ### ⚙️ 구현 화면  
