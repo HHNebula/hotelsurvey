@@ -18,21 +18,22 @@ public class AttemptSignup extends HttpServlet {
             throws ServletException, IOException {
 
         // 1. 회원가입시 입력한 값을 가져와 저장
-        String eamil = request.getParameter("email");
-        String password = request.getParameter("password");
-        String firstName = request.getParameter("firstName");
-        String lastName = request.getParameter("lastName");
-        String titleOfHonor = request.getParameter("titleOfHonor");
-        String birthday = request.getParameter("birthday");
-        String country = request.getParameter("country");
-        String state = request.getParameter("state");
-        String city = request.getParameter("city");
-        String addr = request.getParameter("addr");
+        String[] userInfo = new String[10];
+        userInfo[0] = request.getParameter("email");
+        userInfo[1] = request.getParameter("password");
+        userInfo[2] = request.getParameter("firstName");
+        userInfo[3] = request.getParameter("lastName");
+        userInfo[4] = request.getParameter("titleOfHonor");
+        userInfo[5] = request.getParameter("birthday");
+        userInfo[6] = request.getParameter("country");
+        userInfo[7] = request.getParameter("state");
+        userInfo[8] = request.getParameter("city");
+        userInfo[9] = request.getParameter("addr");
 
         // 2. 입력한 이메일이 중복인지 체크
         SurveyWithDB surveyWithDB = new SurveyWithDB();
         try {
-            boolean isOverlap = surveyWithDB.isOverlap(eamil);
+            boolean isOverlap = surveyWithDB.isOverlap(userInfo[0]);
             // 중복이 아니라면
             if (!isOverlap) {
                 // 3. DB에 값 저장

@@ -342,4 +342,18 @@ public class SurveyWithDB {
         return result;
     }
 
+    public void insertUser(String[] userInfo) {
+        Commons commons = new Commons();
+        Statement statement = commons.getStatement();
+        String query = "INSERT INTO USERS VALUES ('" + userInfo[0] + "', '" + userInfo[1] + "', '" + userInfo[2]
+                + "', '" + userInfo[3] + "', '" + userInfo[4] + "', '" + userInfo[5] + "', '" + userInfo[6] + "', '"
+                + userInfo[7] + "', '" + userInfo[8] + "', '" + userInfo[9] + "')";
+
+        try {
+            statement.execute(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
