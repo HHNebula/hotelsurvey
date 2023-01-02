@@ -342,9 +342,11 @@ public class SurveyWithDB {
         return result;
     }
 
+    // 받아온 회원가입 정보를 전달
     public void insertUser(String[] userInfo) {
         Commons commons = new Commons();
         Statement statement = commons.getStatement();
+        // 이번에 가입될 회원의 UID를 가져옴
         String userId = getInsertUserId();
         String query = "INSERT INTO USERS VALUES ('" + userId + "', '" + userInfo[0] + "', '" + userInfo[1] + "', '"
                 + userInfo[2]
@@ -358,6 +360,7 @@ public class SurveyWithDB {
         }
     }
 
+    // 현재 회원의 수를 참고하여 새로운 회원번호를 전달
     public String getInsertUserId() {
         Commons commons = new Commons();
         Statement statement = commons.getStatement();

@@ -36,6 +36,7 @@ public class AttemptSignup extends HttpServlet {
             boolean isOverlap = surveyWithDB.isOverlap(userInfo[0]);
             // 중복이 아니라면
             if (!isOverlap) {
+                // 인서트 요청
                 surveyWithDB.insertUser(userInfo);
             }
         } catch (SQLException e) {
