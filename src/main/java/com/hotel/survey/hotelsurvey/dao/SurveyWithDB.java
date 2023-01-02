@@ -347,7 +347,7 @@ public class SurveyWithDB {
         Commons commons = new Commons();
         Statement statement = commons.getStatement();
         // 이번에 가입될 회원의 UID를 가져옴
-        String userId = getInsertUserId();
+        String userId = commons.getGeneratorID();
         String query = "INSERT INTO USERS VALUES ('" + userId + "', '" + userInfo[0] + "', '" + userInfo[1] + "', '"
                 + userInfo[2]
                 + "', '" + userInfo[3] + "', '" + userInfo[4] + "', '" + userInfo[5] + "', '" + userInfo[6] + "', '"
