@@ -11,65 +11,92 @@
 
 ### ✈️ 소개  
 JEJU L4 Hotel Survey 은 호텔의 서비스 품질향상을 위해 설문조사 및 통계 기능을 가지고 있습니다.  
-UserPage와 AdminPage가 나누어 제작되어 사용자의 환경과 권한에 따라 이용할 수 있습니다.  
-실제 JEJU L4 Hotel 에 방문 및 사이트 가입 회원 대상으로 ID,PW,CheckIN일자의 방문자 검증 후 CheckIN 기록 건당 1개의 Survey를 제공합니다(중복방지).  
+UserPage와 AdminPage가 나누어 제작되어 ID 권한에 따라 이용할 수 있습니다.  
+Survey 제출 중복방지를 위해 UserPage 가입 회원 대상으로 ID,PW,CheckIN의 유효성 검사를 진행 하며 CheckIN 기록 건당 1개의 Survey를 제공합니다.  
 Survey 필수 입력란 미입력 시 사용자에게 알람을 주어 설문/회원가입/로그인/ID,PW찾기 등의 필수 입력란을 놓치지 않고 오타와 미입력을 방지합니다.  
-호텔 staff는 admin Page에 인증된 ID&PW 로 Login 후 회원조회/예약조회/설문조회 권한을 확인 할 수 있습니다.  
-이를 통해 staff는 호텔 회원의 정보 및 예약 관리와 설문 통계확인이 가능합니다. 
- HTML의 required 속성으로 필수 입력란 미입력 시 사용자에게 알람을 주어 설문/회원가입/로그인/ID,PW찾기 등의 필수 입력란을 놓치지 않습니다.
+호텔 staff는 admin Page에 인증된 ID&PW 로 Login 후 회원조회/예약조회/설문조회 권한을 확인 할 수 있습니다. 이를 통해 staff는 호텔 회원의 정보 및 예약 관리와 설문 통계확인이 가능합니다.  
+
 ### 🛠 기능 요약  
-- UserPage
-1. [SingUp] 회원가입 후 가입한 ID/PW로 LogIn-Out 기능 구현 
+UserPage와 AdminPage가 나누어 제작되어 ID 권한에 따라 이용할 수 있습니다.  
 
-2. [Survey] User 정보의 실제 Check_IN 일자 검증 후 Survey 작성할 수 있도록 구현  
-    1건의 Check_IN 기록에는 1건의 Survey 작성할 수 있도록 구현 (중복방지)  
+### - UserPage  
+1. [SingUp] User의 입력 값을 통한 회원가입 & 중복방지 구현
+
+2. [Log in&Out] 가입한 ID/PW로 Log in&Out 기능 & Login상태에 따른 동적 상태 구현
+
+2. [Survey] Check_IN 날짜 유효성 검증을 통한 Survey 중복 방지 구현 & Survey DB연결 및 출력 구현 
       
-3.  [Statistics] 전체 Survey 작성자의 항목별 응답 개수 통계 구현 
+3.  [Statistics] 전체 Survey 제출 건의 항목별 응답 갯수 Statistics 구현 
 
-2.  [Home&Navbar] Login 상태에 따른 동적 네비바 구현 및 전체 메뉴 이동 구현    
+2.  [Home&Navbar] Login 상태에 따른 동적 화면 및 전체 메뉴 이동 구현    
 
-- AdminPage
-어드민 로그인 / 회원 현황 조회 / 예약 현황 조회 / 항목별 설문 현황 조회 /
-1.  [Login] 
+### - AdminPage  
+
+1. [Admin Log in&Out] 등록된 Admin ID/PW로 Log in&Out 기능 & Login상태에 따른 동적 화면 구현
+
+2. [UserStatus] 가입한 전체 User 회원 정보 조회 구현 
+
+3. [Reservation]  전체 User의 예약 현황 조회 구현 
+
+4. [Statistics] 전체 Survey 제출 건의 항목별 응답 갯수 Statistics 구현 
+
 -----------------------
 
 ### ⏰ 개발 기간
-[1차]2022년 11월 10일 ~ 2022년 11월 11일  
-[2차]2022년 12월 8일 ~ 2022년 12월 9일 
-### 📌 기술
-HTML, CSS , Bootstrap
-VisualStudioCode, git  
+[1차]2022년 12월 27일 ~ 2023년 1월 1일  
 
-### 🔍<ㅎㅎ> 팀 멤버 한줄 소개  
+### 📌 Technical stack  
+![Generic badge](https://img.shields.io/badge/Java-yellow.svg)  ![Generic badge](https://img.shields.io/badge/Survlet-blue.svg)  ![Generic badge](https://img.shields.io/badge/JSP-red.svg)  ![Generic badge](https://img.shields.io/badge/JDBC-skyblue.svg)  ![Generic badge](https://img.shields.io/badge/Bootstrap-purple.svg) ![Generic badge](https://img.shields.io/badge/CSS-yellowgreen.svg) ![Generic badge](https://img.shields.io/badge/HTML-green.svg) 
+![Generic badge](https://img.shields.io/badge/VisualStudioCode-orange.svg)
+![Generic badge](https://img.shields.io/badge/MySQL-skyblue.svg)
+![Generic badge](https://img.shields.io/badge/Tomecat-gree.svg)                
+
+### 🔍<개발팀> 멤버 한줄 소개  
    
 ### 👨‍💻 하성수(팀장)  
-스토리보드 작성, PPT 작성
-공통 화면, 홈 화면, 설문 통계 화면, 회원 가입 화면 설계 및 구현  
+
+팀원 업무분담 , 전체 코드리뷰    
+ERD, SQL, ddl, dml  
+User&Admin Page Log in&out 여부에 따른 동적 nav 구현  
+Admin Page Backend & Admin Page Frontend 전체 구현  
+(Admin Log in&Out ,UserStatus,Reservation,Statistics)  
+  
 
 ### 👩‍💻 김현정  
-스토리보드 작성, Git 관리, 업무 흐름도 제작
-로그인 화면, 설문지 화면,  아이디, 비밀번호 찾기 화면 설계 및 구현
+Git 관리, 기능별 영상 촬영 & ReadMe 관리 , 전체 코드리뷰  
+User Page Frontend 구현 및 보수    
+User Page Login-Out 기능 구현    
+User & Admin Page Login 실패 확인 기능 (Alert) 구현  
+
+
+### 👨‍💻 진보경 
+
+UserPage Survey 문항/답항 DB 연결 및 Survey 구현 및 제출된 Survey를 DB 입력 기능 구현  
+Login UserID 통해 Check-IN&Out List 출력  
+Check_IN 날짜 유효성 검증을 통한 Survey 중복 방지 구현(Alert) & Survey DB연결 및 출력    
+Survey 제출 건의 항목별 응답 갯수 Statistics 구현 Survey 작성 시 객관식 문항 or Check-IN 미입력 방지 구현  
+
+### 👩‍💻 류연주  
+코드 유지보수 관리, 통합 기능 구현 테스트(QC)    
+UserPage SignUp 시도 시 기존 가입자 Email과 중복 방지 기능 구현  
+UserPage SignUp 기능 구현   
+UserPage & AdminPage 구현 테스트 및 동영상 촬영  
 
 
 -----------------------
 ### 🔗 라이브 영상  
-- [JEJU L4 Hotel Survey_Live](https://www.youtube.com/watch?v=qNAzFQ3t0SM)  
+- [L4 Hotel Survey JEJU (UserPage)_Live](https://www.youtube.com/watch?v=Rg0f_bUsdBU)  
   
-### 💻 CodeArchitecture  
-- [CodeArchitecture](./docs/Storyboard/codearchitectures.png)  
+### 💻 ERD
+- [ERD](./docs/img/ERD.png)  
 
 ### ⚙️ 구현 화면  
 
-### [1차]
-- [Home (메인 홈화면 이미지)](./docs/img/signup.png)
-- [Signup (회원가입 화면 이미지)]("./docs/img/signup.png)
-- [Log in (로그인 화면 이미지)](./docs/img/login.png)
-- [Find_id_pw (ID/PW 찾기 화면 이미지)](./docs/img/id_pw_find.png)
-- [Survey (설문지 작성 화면 이미지)](./docs/img/survey.png)
-- [Review (설문지 통계 화면 이미지)](./docs/img/review.png)
+### [User Page]
 
 
-### [2차]
+
+### [Admin Page]
 - [Home (메인 홈화면 이미지)](./docs/refactoring/img/home.png)
 - [Signup (회원가입 화면 이미지)](./docs/refactoring/img/signup.png)
 - [Log in (로그인 화면 이미지)](./docs/refactoring/img/login.png)
@@ -80,100 +107,98 @@ VisualStudioCode, git
 
 -----------------------
 
-### 📝 부트스트랩 버전 주요 코드
+### 📝 주요 코드
 
-#### 회원 가입 페이지 내 약관 동의 모달
+#### 드롭다운 메뉴 클릭시 투숙 기록 UID 출력
 
 ![Sign Up](./docs/refactoring/img/cap_img2.png)
 
-```html
-<!-- 체크 박스와 라벨에 동일한 모달 속성을 부여하여 클릭 시 체크 및 약관 동의 모달 노출 -->
-<div class="row justify-content-center">
-    <div class="form-group col-12 col-md-8 my-3">
-        <!-- 약관 동의 체크박스 -->
-        <input type="checkbox" name="agree" id="agree" required data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-        <!-- 약관 동의 라벨 -->
-        <label for="agree">
-            <p data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                I accept the terms and conditions of
-                personal information collection
-                </p>
-        </label>
-    </div>
-</div>
+```JS
 
-<!-- 개인정보 약관 modal-->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-            <!-- 생략 -->
+let queryReserv = document.querySelector("#reserv");
+let queryReservHidden = document.querySelector("#reservhidden");
+
+queryReserv.addEventListener("click", (event) => {
+  if (event.target.id != null) {
+    queryReservHidden.innerHTML =
+      "<input type='hidden' name='reservID' value=" +
+      `${event.target.id}` +
+      " />";
+  }
+});
+
 ```
-#### 통계 페이지 컬럼명을 아이콘으로 대체
+#### include를 이용한 header와 footer 적용
 
 ![Sign Up](./docs/refactoring/img/cap_img1.png)
 
-```html
-<table class="table table-striped table-responsive">
-    <thead>
-        <tr>
-            <th class="w-25" scope="col">
-                <span class="material-symbols-outlined">sort</span>
-            </th>
-            <th scope="col">
-                <span class="material-symbols-outlined">sentiment_very_satisfied</span>
-            </th>
-            <th scope="col">
-                <span class="material-symbols-outlined">sentiment_satisfied</span>
-            </th>
-            <th scope="col">
-                <span class="material-symbols-outlined">sentiment_neutral</span>
-            </th>
-            <th scope="col">
-                <span class="material-symbols-outlined">sentiment_dissatisfied</span>
-            </th>
-            <th scope="col">
-                <span class="material-symbols-outlined">sentiment_very_dissatisfied</span>
-            </th>
-        </tr>
-    </thead>
+```JSP
+ <%@ include file = "header.jsp" %>
+ <%@ include file = "footer.jsp" %>
     <!-- 생략 -->
 ```
 
-#### Survey 를 Card와 radio를 이용해서 구현
+#### 어드민 설문 조회 페이지에서 현재 어떤 항목을 표시하고 있는지를 나타내는 코드  
 ![Sign Up](./docs/refactoring/img/surveybutton.png)
-```html
+```jsp
+<div class="fs-3" id="admin_target_title">
+    <% switch (target) { case "Q1" : %>
+    접근 편의성
+    <% break; case "Q2" : %>
+    직원 친절도
+    <% break; case "Q3" : %>
+    호텔 청결도
+    <% break; case "Q4" : %>
+    음식 만족도
+    <% break; case "Q5" : %>
+    시설 편리성
+    <% break; case "descriptive" : %>
+    주관식 응답
+    <% break; } %>
+</div>
+```
 
-   <div class="card mb-3 bg-opacity-50" style="width: 100%;">
-                            <div class="card-header">Customer Satisfaction Survey</div>
-                            <div class="list-group list-group-flush text-dark fs-5">
-                                <li class="list-group-item mb-4 pb-4">
-                                    <p class="mt-3">1. 호텔을 찾아오시는 길은 편리하셨습니까?</p>
-                                    <div class="btn-group">
-                                        <label class="btn btn-dark " for="traffic_Very_satisfied">
-                                            <input type="radio" name="traffic" id="traffic_Very_satisfied"
-                                                value="Very_satisfied" autocomplete="off" required> 매우만족 <br>
-                                        </label>
-                                        <label class="btn btn-dark" for="traffic_Satisfied">
-                                            <input type="radio" name="traffic" id="traffic_Satisfied" value="Satisfied"
-                                                autocomplete="off" required>
-                                            만족
-                                        </label>
-                                        <label class="btn btn-dark" for="traffic_normal">
-                                            <input type="radio" name="traffic" id="traffic_normal" value="normal"
-                                                autocomplete="off" required> 보통
-                                        </label>
-                                        <label class="btn btn-dark" for="traffic_Complained">
-                                            <input type="radio" name="traffic" id="traffic_Complained"
-                                                value="Complained" autocomplete="off" required> 불만
-                                        </label>
-                                        <label class="btn btn-dark" for="traffic_Dissatisfied">
-                                            <input type="radio" name="traffic" id="traffic_Dissatisfied"
-                                                value="Dissatisfied" autocomplete="off" required> 매우불만
-                                        </label>
-                                    </div>
-                                </li>
+#### 출력하고자 하는 설문 내용이 주관식인지, 선택형인지 여부에 따라 테이블을 다르게 구성하여 출력  
+![Sign Up](./docs/refactoring/img/surveybutton.png)
+```jsp
+<table class="table table-striped">
+<% if (target.equals("descriptive")) { %>
+    <thead>
+        <tr>
+            <th scope="col">주관식 응답 내용</th>
+        </tr>
+    </thead>
+    <% } else { %>
+    <thead>
+        <tr>
+            <th scope="col">매우 만족</th>
+            <th scope="col">만족</th>
+            <th scope="col">보통</th>
+            <th scope="col">불만</th>
+            <th scope="col">매우불만</th>
+        </tr>
+    </thead>
+    <% } %>
+    <tbody>
+    <% ArrayList<String> result = (ArrayList<String>) request.getAttribute("result");
+    if (target.equals("descriptive")) {
+        for (int i = 0; i < result.size(); i++ ) { %>
+        <tr>
+            <td>
+                <%= result.get(i) %>
+            </td>
+        </tr>
+    <% } } else { %>
+        <tr>
+    <% for (int i=0; i < result.size(); i++ ) { %>
+            <td>
+                <%= result.get(i) %>
+            </td>
+    <% } %>
+        </tr>
+    <% } %>
+    </tbody>
+</table>
 ```
 -----------------------
 ### 화면 정의서
@@ -213,7 +238,10 @@ VisualStudioCode, git
 ### CSS
 - [index](/docs/css/index.css)  
 -----------------------
-### 🤖 프로젝트 성격 (동기)
+### 🤖 프로젝트 성격 (동기)  
+해당 프로젝트는 1차 콘솔 구현, 2차 프론트 구현했던 주제로 이를 거쳐 3차로 jsp, Survlet, sql을 중심으로 더해 기능 구현을 추가한 프로젝트입니다.  
+저희팀은 요구하는 기능의 더 안정적인 구현을 위해 이전 프로젝트의 front를 보수 하지만 최대한 기존의 퍼블리싱을 살리는 것을 중심으로 사이트에있는 모든 기능을 최대한 구현 하는 것을 목표로 프로젝트에 임하였습니다.
+
 해당 프로젝트는 1차적으로 Java로 구현 하였던 프로젝트입니다 (이전 프로젝트 [L4 Hotel Survey_Java ver](https://github.com/HyeonTtora/KH_SemiProject/blob/master/README.md) ) 저희 팀은 이전 프로젝트를 2차로 front로 구현하다보니 프로젝트 기간이 더 짧게 진행된 만큼 front에서의 강점을 최대한 명확하게 보이게 구현할 수 있는 부분 위주로 고민 해보았습니다. 화면으로 보여지는 것은 사용자가 콘솔창보다 더 직관적으로 확인을 할 수 있는 점이 대표적인 장점이라고 생각이 되었습니다. 직관적으로 확인할 수 있는 부분을 활용해 설문 대상자가 설문 또는 회원가입 등 필수 입력값을 입력 시 오타, 공란 등으로 놓칠 수 있는 부분을 더 직관적이게 표현한다면 오답,정보미입력 등을 줄이고, 사용자 또한 어떤 것이 오입력,미입력 되었는지 더 쉽게 확인할 수 있지 않을까? 라는 생각을 가지고 접근하게 되었습니다. 
 
 
