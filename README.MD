@@ -1,5 +1,5 @@
 ## 🏨 L4 Hotel JEJU 🏨  
-![Generic badge](https://img.shields.io/badge/Java-yellow.svg)  ![Generic badge](https://img.shields.io/badge/Survlet-blue.svg)  ![Generic badge](https://img.shields.io/badge/JSP-red.svg)  ![Generic badge](https://img.shields.io/badge/JDBC-skyblue.svg)  ![Generic badge](https://img.shields.io/badge/Bootstrap-purple.svg) ![Generic badge](https://img.shields.io/badge/CSS-yellowgreen.svg) ![Generic badge](https://img.shields.io/badge/HTML-green.svg) 
+![Generic badge](https://img.shields.io/badge/Java-yellow.svg)  ![Generic badge](https://img.shields.io/badge/Servlet-blue.svg)  ![Generic badge](https://img.shields.io/badge/JSP-red.svg)  ![Generic badge](https://img.shields.io/badge/JDBC-skyblue.svg)  ![Generic badge](https://img.shields.io/badge/Bootstrap-purple.svg) ![Generic badge](https://img.shields.io/badge/CSS-yellowgreen.svg) ![Generic badge](https://img.shields.io/badge/HTML-green.svg) 
 ![Generic badge](https://img.shields.io/badge/VisualStudioCode-orange.svg)
 ![Generic badge](https://img.shields.io/badge/MySQL-skyblue.svg)
 ![Generic badge](https://img.shields.io/badge/Tomecat-gree.svg)  
@@ -50,7 +50,7 @@ UserPage와 AdminPage가 분리되어있습니다.
 2022년 12월 27일 ~ 2023년 1월 1일  
 
 ### 📌 Technical stack  
-![Generic badge](https://img.shields.io/badge/Java-yellow.svg)  ![Generic badge](https://img.shields.io/badge/Survlet-blue.svg)  ![Generic badge](https://img.shields.io/badge/JSP-red.svg)  ![Generic badge](https://img.shields.io/badge/JDBC-skyblue.svg)  ![Generic badge](https://img.shields.io/badge/Bootstrap-purple.svg) ![Generic badge](https://img.shields.io/badge/CSS-yellowgreen.svg) ![Generic badge](https://img.shields.io/badge/HTML-green.svg) 
+![Generic badge](https://img.shields.io/badge/Java-yellow.svg)  ![Generic badge](https://img.shields.io/badge/Servlet-blue.svg)  ![Generic badge](https://img.shields.io/badge/JSP-red.svg)  ![Generic badge](https://img.shields.io/badge/JDBC-skyblue.svg)  ![Generic badge](https://img.shields.io/badge/Bootstrap-purple.svg) ![Generic badge](https://img.shields.io/badge/CSS-yellowgreen.svg) ![Generic badge](https://img.shields.io/badge/HTML-green.svg) 
 ![Generic badge](https://img.shields.io/badge/VisualStudioCode-orange.svg)
 ![Generic badge](https://img.shields.io/badge/MySQL-skyblue.svg)
 ![Generic badge](https://img.shields.io/badge/Tomecat-gree.svg)                
@@ -75,7 +75,7 @@ User & Admin Page Login 실패 확인 기능 (Alert) 구현
 
 ### 👩‍💻 진보경 
 
-UserPage Survey 문항/답항 DB 연결 및 Survey 구현 및 제출된 Survey를 DB 입력 기능 구현  
+UserPage Survey 문항/답항 DB 연결 , Survey 구현 및 제출된 Survey를 DB 입력 기능 구현  
 Login UserID 통해 Check-IN&Out List 출력  
 Check_IN 날짜 유효성 검증을 통한 Survey 중복 방지 구현(Alert) & Survey DB연결 및 출력    
 Survey 제출 건의 항목별 응답 갯수 Statistics 구현 Survey 작성 시 객관식 문항 or Check-IN 미입력 방지 구현  
@@ -227,7 +227,7 @@ queryReserv.addEventListener("click", (event) => {
 
 ### [User Page]  
 
-### Survlets  
+### Servlet  
 - [ForgetIdPw](/src/main/java/com/hotel/survey/hotelsurvey/survlets/prods/login/ForgetIdPw.java)  
 - [LoginAttempt](/src/main/java/com/hotel/survey/hotelsurvey/survlets/prods/login/LoginAttempt.java)  
 - [LoginPage](/src/main/java/com/hotel/survey/hotelsurvey/survlets/prods/login/LoginPage.java) 
@@ -253,7 +253,7 @@ queryReserv.addEventListener("click", (event) => {
 
 ### [Admin Page]  
 
-### Survlets 
+### Servlet 
 - [AdminMain](/src/main/java/com/hotel/survey/hotelsurvey/survlets/admins/AdminMain.javaa)  
 - [AdminLogin](/src/main/java/com/hotel/survey/hotelsurvey/survlets/admins/AdminLogin.java)  
 - [AdminPage](/src/main/java/com/hotel/survey/hotelsurvey/survlets/admins/AdminPage.java)  
@@ -266,14 +266,14 @@ queryReserv.addEventListener("click", (event) => {
 
 ### jsp
 - [adminheader](/src/main/resources/META-INF/resources/jsp/admin/adminheader.jsp)  
-- [adminheader](/src/main/resources/META-INF/resources/jsp/admin/login.jsp)  
-- [adminheader](/src/main/resources/META-INF/resources/jsp/admin/main.jsp)  
-- [adminheader](/src/main/resources/META-INF/resources/jsp/admin/member.jsp)  
-- [adminheader](/src/main/resources/META-INF/resources/jsp/admin/reservation.jsp)  
-- [adminheader](/src/main/resources/META-INF/resources/jsp/admin/survey.jsp)  
+- [login](/src/main/resources/META-INF/resources/jsp/admin/login.jsp)  
+- [main](/src/main/resources/META-INF/resources/jsp/admin/main.jsp)  
+- [member](/src/main/resources/META-INF/resources/jsp/admin/member.jsp)  
+- [reservation](/src/main/resources/META-INF/resources/jsp/admin/reservation.jsp)  
+- [survey](/src/main/resources/META-INF/resources/jsp/admin/survey.jsp)  
 -----------------------
 ### 🤖 프로젝트 성격 (동기)  
-해당 프로젝트는 1차 콘솔 구현, 2차 프론트 구현했던 주제로 이를 거쳐 3차로 jsp, Survlet, sql을 중심으로 더해 기능 구현을 추가한 프로젝트입니다.  
+해당 프로젝트는 1차 콘솔 구현, 2차 프론트 구현했던 주제로 이를 거쳐 3차로 jsp, Servlet, sql을 중심으로 더해 기능 구현을 추가한 프로젝트입니다.  
 저희팀은 요구하는 기능의 더 안정적인 구현을 위해 이전 프로젝트의 front를 보수 하지만 최대한 기존의 디자인 살리는 것을 중심으로 사이트에 구성되어있는 모든 기능을 최대한 구현 하는 것을 목표로 프로젝트에 임하였습니다.  
 
 
