@@ -7,17 +7,21 @@
 -----------------------  
 
 ### ⚙️ 구현 화면  
+- [User Page]   
+<img width="40%" src="./docs/img/userpage.gif">
 
+- [Admin Page]   
+<img width="40%" src="./docs/img/adminpage.gif">  
 
-### ✈️ 소개  
+### ✈️ 소개 
 JEJU L4 Hotel Survey 은 호텔의 서비스 품질향상을 위해 설문조사 및 통계 기능을 가지고 있습니다.  
-UserPage와 AdminPage가 나누어 제작되어 ID 권한에 따라 이용할 수 있습니다.  
-Survey 제출 중복방지를 위해 UserPage 가입 회원 대상으로 ID,PW,CheckIN의 유효성 검사를 진행 하며 CheckIN 기록 건당 1개의 Survey를 제공합니다.  
+User와 Staff의 사용 목적 및 관리를 고려하여 UserPage와 AdminPage를 나누어 구현하였습니다.  
+Survey 제출 중복 방지를 위해서 UserPage 가입 회원 대상으로 ID,PW,CheckIN의 유효성 검사를 진행 하며 CheckIN 기록 건당 1개의 Survey를 제공합니다.  
 Survey 필수 입력란 미입력 시 사용자에게 알람을 주어 설문/회원가입/로그인/ID,PW찾기 등의 필수 입력란을 놓치지 않고 오타와 미입력을 방지합니다.  
 호텔 staff는 admin Page에 인증된 ID&PW 로 Login 후 회원조회/예약조회/설문조회 권한을 확인 할 수 있습니다. 이를 통해 staff는 호텔 회원의 정보 및 예약 관리와 설문 통계확인이 가능합니다.  
 
 ### 🛠 기능 요약  
-UserPage와 AdminPage가 나누어 제작되어 ID 권한에 따라 이용할 수 있습니다.  
+UserPage와 AdminPage가 분리되어있습니다.  
 
 ### - UserPage  
 1. [SingUp] User의 입력 값을 통한 회원가입 & 중복방지 구현
@@ -43,7 +47,7 @@ UserPage와 AdminPage가 나누어 제작되어 ID 권한에 따라 이용할 �
 -----------------------
 
 ### ⏰ 개발 기간
-[1차]2022년 12월 27일 ~ 2023년 1월 1일  
+2022년 12월 27일 ~ 2023년 1월 1일  
 
 ### 📌 Technical stack  
 ![Generic badge](https://img.shields.io/badge/Java-yellow.svg)  ![Generic badge](https://img.shields.io/badge/Survlet-blue.svg)  ![Generic badge](https://img.shields.io/badge/JSP-red.svg)  ![Generic badge](https://img.shields.io/badge/JDBC-skyblue.svg)  ![Generic badge](https://img.shields.io/badge/Bootstrap-purple.svg) ![Generic badge](https://img.shields.io/badge/CSS-yellowgreen.svg) ![Generic badge](https://img.shields.io/badge/HTML-green.svg) 
@@ -69,7 +73,7 @@ User Page Login-Out 기능 구현
 User & Admin Page Login 실패 확인 기능 (Alert) 구현  
 
 
-### 👨‍💻 진보경 
+### 👩‍💻 진보경 
 
 UserPage Survey 문항/답항 DB 연결 및 Survey 구현 및 제출된 Survey를 DB 입력 기능 구현  
 Login UserID 통해 Check-IN&Out List 출력  
@@ -85,18 +89,18 @@ UserPage & AdminPage 구현 테스트 및 동영상 촬영
 
 -----------------------
 ### 🔗 라이브 영상  
-- [L4 Hotel Survey JEJU (UserPage)_Live](https://www.youtube.com/watch?v=Rg0f_bUsdBU)  
+- [L4 Hotel Survey JEJU (User Page)_Live](https://www.youtube.com/watch?v=Rg0f_bUsdBU)  
+- [L4 Hotel Survey JEJU (Admin Page)_Live](https://www.youtube.com/watch?v=dkxa0cUDRTo)    
   
 ### 💻 ERD
 - [ERD](./docs/img/ERD.png)  
 
+### 💻 CodeArchitecture  
+- [CodeArchitecture](./docs/img/codearchitectures.png)  
 ### ⚙️ 구현 화면  
 
+
 ### [User Page]
-
-
-
-### [Admin Page]
 - [Home (메인 홈화면 이미지)](./docs/refactoring/img/home.png)
 - [Signup (회원가입 화면 이미지)](./docs/refactoring/img/signup.png)
 - [Log in (로그인 화면 이미지)](./docs/refactoring/img/login.png)
@@ -105,13 +109,24 @@ UserPage & AdminPage 구현 테스트 및 동영상 촬영
 - [Review (설문지 통계 화면 이미지)](./docs/refactoring/img/stisfaction.png)
 
 
+### [Admin Page]
+- [admin_main (메인 화면 이미지)](./docs/img/3_admin_main.png)
+- [admin_login (로그인 화면 이미지)](./docs/img/1_admin_login.png)
+- [admin_login_error (로그인 에러 이미지)](./docs/img/2_admin_login_error.png)
+- [admin_userList (회원 현황 조회 이미지)](./docs/img/4_admin_userList.png)
+- [admin_reservList (예약 현황 조회 이미지)](./docs/img/5_admin_reservList.png)
+- [admin_survey (설문지 통계 주관식 이미지)](./docs/img/6_admin_survey_desc.png)
+- [admin_survey (설문지 통계 접근편의성 이미지)](./docs/img/6_admin_survey_Q1.png)
+- [admin_survey (설문지 통계 직원친절도 이미지)](./docs/img/6_admin_survey_Q2.png)
+- [admin_survey (설문지 통계 호텔청결도 이미지)](./docs/img/6_admin_survey_Q3.png)
+- [admin_survey (설문지 통계 음식만족도 이미지)](./docs/img/6_admin_survey_Q4.png)
+- [admin_survey (설문지 통계 화시설편의성면 이미지)](./docs/img/6_admin_survey_Q5.png)
+
 -----------------------
 
 ### 📝 주요 코드
 
 #### 드롭다운 메뉴 클릭시 투숙 기록 UID 출력
-
-![Sign Up](./docs/refactoring/img/cap_img2.png)
 
 ```JS
 
@@ -130,7 +145,7 @@ queryReserv.addEventListener("click", (event) => {
 ```
 #### include를 이용한 header와 footer 적용
 
-![Sign Up](./docs/refactoring/img/cap_img1.png)
+
 
 ```JSP
  <%@ include file = "header.jsp" %>
@@ -139,7 +154,7 @@ queryReserv.addEventListener("click", (event) => {
 ```
 
 #### 어드민 설문 조회 페이지에서 현재 어떤 항목을 표시하고 있는지를 나타내는 코드  
-![Sign Up](./docs/refactoring/img/surveybutton.png)
+
 ```jsp
 <div class="fs-3" id="admin_target_title">
     <% switch (target) { case "Q1" : %>
@@ -159,7 +174,8 @@ queryReserv.addEventListener("click", (event) => {
 ```
 
 #### 출력하고자 하는 설문 내용이 주관식인지, 선택형인지 여부에 따라 테이블을 다르게 구성하여 출력  
-![Sign Up](./docs/refactoring/img/surveybutton.png)
+
+
 ```jsp
 <table class="table table-striped">
 <% if (target.equals("descriptive")) { %>
@@ -201,33 +217,41 @@ queryReserv.addEventListener("click", (event) => {
 </table>
 ```
 -----------------------
-### 화면 정의서
-- [화면정의서](./docs/Storyboard/StoryBoard.pdf)  
+### SQL 
+- [ddl](../ddl.sql)  
+- [dml](../dml.sql)  
 
-### 요구사항 정의서
-- [요구사항 정의서](./docs/Storyboard/Requirements.pdf)  
-  
-### [1차]  
+### dao
+- [Commons](/src/main/java/com/hotel/survey/hotelsurvey/dao/Commons.java) 
+- [SurveyWithDB](/src/main/java/com/hotel/survey/hotelsurvey/dao/SurveyWithDB.java)  
 
-### HTML  
-- [index](/docs/html/index.html)  
-- [signup](/docs/html/signup.html)  
-- [login](/docs/html/login.html)  
-- [find_id_pw](/docs/html/find_id_pw.html)  
-- [review](/docs/html/review.html)  
-- [survey](/docs/html/survey.html)  
-- [survey_done](/docs/html/survey_done.html)  
+### [User Page]  
 
-### CSS
-- [index](/docs/css/index.css)  
-- [login](/docs/css/login.css)  
-- [review](/docs/css/review.css)  
-- [signup](/docs/css/signup.css)  
-- [survey](/docs/css/survey.css)  
+### Survlets  
+- [ForgetIdPw](/src/main/java/com/hotel/survey/hotelsurvey/survlets/prods/login/ForgetIdPw.java)  
+- [LoginAttempt](/src/main/java/com/hotel/survey/hotelsurvey/survlets/prods/login/LoginAttempt.java)  
+- [LoginPage](/src/main/java/com/hotel/survey/hotelsurvey/survlets/prods/login/LoginPage.java) 
+- [LogoutAttempt](/src/main/java/com/hotel/survey/hotelsurvey/survlets/prods/login/LogoutAttempt.java) 
+- [Home](/src/main/java/com/hotel/survey/hotelsurvey/survlets/prods/main/Home.java) 
+- [AttemptSignup](/src/main/java/com/hotel/survey/hotelsurvey/survlets/prods/signup/AttemptSignup.java) 
+- [Signup](/src/main/java/com/hotel/survey/hotelsurvey/survlets/prods/signup/Signup.java) 
+- [StatisticsServlets](/src/main/java/com/hotel/survey/hotelsurvey/survlets/prods/survey/StatisticsServlets.java) 
+- [SurveyServlets](/src/main/java/com/hotel/survey/hotelsurvey/survlets/prods/survey/SurveyServlets.java) 
 
-### [2차]  
+### jsp
+- [footer](/src/main/resources/META-INF/resources/jsp/prod/footer.jsp)  
+- [forget_id_pw](/src/main/resources/META-INF/resources/jsp/prod/forget_id_pw.jsp)  
+- [header](/src/main/resources/META-INF/resources/jsp/prod/header.jsp)  
+- [index](/src/main/resources/META-INF/resources/jsp/prod/index.jsp)  
+- [login](/src/main/resources/META-INF/resources/jsp/prod/login.jsp)  
+- [signup](/src/main/resources/META-INF/resources/jsp/prod/signup.jsp)  
+- [statistics](/src/main/resources/META-INF/resources/jsp/prod/statistics.jsp)  
+- [survey](/src/main/resources/META-INF/resources/jsp/prod/survey.jsp)  
 
-### HTML  
+
+### [Admin Page]  
+
+### Survlets 
 - [index](/docs/refactoring/index.html)  
 - [signup](/docs/refactoring/signup.html)  
 - [login](/docs/refactoring/login.html)  
@@ -240,14 +264,14 @@ queryReserv.addEventListener("click", (event) => {
 -----------------------
 ### 🤖 프로젝트 성격 (동기)  
 해당 프로젝트는 1차 콘솔 구현, 2차 프론트 구현했던 주제로 이를 거쳐 3차로 jsp, Survlet, sql을 중심으로 더해 기능 구현을 추가한 프로젝트입니다.  
-저희팀은 요구하는 기능의 더 안정적인 구현을 위해 이전 프로젝트의 front를 보수 하지만 최대한 기존의 퍼블리싱을 살리는 것을 중심으로 사이트에있는 모든 기능을 최대한 구현 하는 것을 목표로 프로젝트에 임하였습니다.
+저희팀은 요구하는 기능의 더 안정적인 구현을 위해 이전 프로젝트의 front를 보수 하지만 최대한 기존의 디자인 살리는 것을 중심으로 사이트에 구성되어있는 모든 기능을 최대한 구현 하는 것을 목표로 프로젝트에 임하였습니다.  
 
-해당 프로젝트는 1차적으로 Java로 구현 하였던 프로젝트입니다 (이전 프로젝트 [L4 Hotel Survey_Java ver](https://github.com/HyeonTtora/KH_SemiProject/blob/master/README.md) ) 저희 팀은 이전 프로젝트를 2차로 front로 구현하다보니 프로젝트 기간이 더 짧게 진행된 만큼 front에서의 강점을 최대한 명확하게 보이게 구현할 수 있는 부분 위주로 고민 해보았습니다. 화면으로 보여지는 것은 사용자가 콘솔창보다 더 직관적으로 확인을 할 수 있는 점이 대표적인 장점이라고 생각이 되었습니다. 직관적으로 확인할 수 있는 부분을 활용해 설문 대상자가 설문 또는 회원가입 등 필수 입력값을 입력 시 오타, 공란 등으로 놓칠 수 있는 부분을 더 직관적이게 표현한다면 오답,정보미입력 등을 줄이고, 사용자 또한 어떤 것이 오입력,미입력 되었는지 더 쉽게 확인할 수 있지 않을까? 라는 생각을 가지고 접근하게 되었습니다. 
+
 
 
 ### 🐤 에피소드 및 느낀점  
 
-이번 프로젝트는 백엔드와 프론트의 장.단점을 깊이 느낄 수 있는 프로젝트였습니다.  
-이전 Java로 구현 후 HTML과 CSS로 2차 프로젝트를 진행하니 확실히 이전 프로젝트에서 부족했던 점과 Java에서는 꽤 쉽게 구현했던 것이 오히려 잘 안돼거나 반대로 HTML나 CSS 에서는 쉽게 구현되는 것이 Java에서 되지 않거나 하는 상황을 맞이하며 많은 고민을 하게 되었습니다. 성격이 매우다른 개발환경이였지만 조금더 깊이 프로그래밍의 이해도를 쌓아간 것 같습니다. 더 많은 프로젝트를 경험하고, 공부하고 느끼고싶은 값진 경험이였습니다.
+저희 팀은 이번 프로젝트는 기능을 구현했어야 하는 만큼 모든 팀원이 Backend 기능을 1건이상 맡아 정상적으로 모든 화면에서 구현하고자 노력했던 프로젝트였습니다.  
+이전 Java로 구현 후 HTML과 CSS,부트스트랩으로 프로젝트를 진행했던 것과 달리 확실히 모든 기능을 구현하고자 하는 과정에서 힘든 과정을 겪었으나 팀원들과 모르는 부분이 있을 때 서로 코드를 공유하고 도움을 주는 과정으로 이겨낼 수 있어 정말 협업의 중요성을 깊이 느꼈습니다. 또한 의외로 기본적인 Java 문법에 대한 문제가 발생하는 경우도 있어 더 탄탄한 기본기가 좋은 결과물을 만들 수 있다고 생각하게 되어 부족한 점을 보완해 갈 수있는 기회가 되었습니다. 이번 프로젝트로 웹 어플리케이션의 동작 방식을 더 잘 이해할 수 있게는 계기가 되었습니다. 
 
 
