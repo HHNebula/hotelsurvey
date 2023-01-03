@@ -25,14 +25,14 @@
         <form action="/statisticsServlets" method="post">
                     <%-- 중복설문으로 되돌아왔을때 --%>
             <% if ((String) request.getAttribute("error") != null) { %>         
-             <div class="row justify-content-center text-center">
+            <div class="row justify-content-center text-center">
             <div class="alert alert-info alert-dismissible fade show form-group col-13 col-md-5 my-2 " role="alert">
             <i class="bi bi-patch-exclamation-fill"></i>
             이미 작성한 설문입니다.<br><strong><a href="/surveyServlets" class="alert-link">Check In/Out 날짜</a></strong>를 확인해주세요. 
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
             </div>
-             <% } %>
+            <% } %>
             <!-- 호텔로고 & 설문안내 -->
             <div class="card text-center align-items-center text-secondary">
                 <img class="card-img-top" src="../img/hotelimg.png" alt="Card image cap" style="width: 400px;">
@@ -85,7 +85,7 @@
                                         </a>
 
                             
-                             <%   }  %>
+                            <%   }  %>
 
                                         <button class="dropdown-item disabled" href="#">Check-Out을 완료한 투숙건만
                                             보여집니다.</button>
@@ -93,14 +93,14 @@
                                 </div>
                             </div>
                         </div>
-                             <div id = "reservhidden"></div>
+                            <div id = "reservhidden"></div>
                         <!-- 설문지&답항 -->
                         <div class="card mb-3 bg-opacity-50" style="width: 100%;">
                             <div class="card-header">Customer Satisfaction Survey</div>
                             <div class="list-group list-group-flush text-dark fs-5">
                             <div class ="mb-3"></div>
             <!-- ArrayList 설문 답항 불러오기 -->
-         <% ArrayList<HashMap>bundle_list = (ArrayList<HashMap>)request.getAttribute("bundle_list");
+        <% ArrayList<HashMap>bundle_list = (ArrayList<HashMap>)request.getAttribute("bundle_list");
             for (int i = 0; i < bundle_list.size(); i++) {
             HashMap<String, Object> bundles = bundle_list.get(i);
             HashMap<String, Object> questions = (HashMap<String, Object>) bundles.get("question");
@@ -112,27 +112,27 @@
             
             <%-- 문항 출력 --%>
             <p class="card-text"><%= order %>. <%= question %></p>
-             <%
+            <%
             ArrayList<HashMap> answers_list = (ArrayList<HashMap>) bundles.get("answer_list"); %>
-             <li class="list-group-item mb-4 pb-4">
+            <li class="list-group-item mb-4 pb-4">
                 <div class="btn-group">
                 <%-- 답항 출력 --%>
             <% for (int j = 0; j < answers_list.size(); j++) {
                 HashMap<String, Object> answers = (HashMap<String, Object>) answers_list.get(j);
-                 int ans_order = (int) answers.get("ORDERS");
-                 String answer = (String) answers.get("ANSWER");
-                 String answer_ID = (String) answers.get("ANSWER_ID"); %>
+                int ans_order = (int) answers.get("ORDERS");
+                String answer = (String) answers.get("ANSWER");
+                String answer_ID = (String) answers.get("ANSWER_ID"); %>
 
                                         <label class="btn btn-dark " for="<%= question_ID %><%= answer_ID %>">
                                             <input type="radio" name="<%= question_ID %>" id="<%= question_ID %><%= answer_ID %>"
                                                 value="<%= answer_ID %>" autocomplete="off" required><%=  answer %><br>
                             </label>
                         <% } %>
-                 </div>
+                </div>
             </li>
         <%   } %>
 
-                                  
+                                
                                 <!-- 주관식문항(선택) -->
                                 <li class="list-group-item">
                                     <p class="card-text">6. 고객님의 소중한 의견을 자유롭게 남겨주세요 (선택사항) <br> Please feel free to
