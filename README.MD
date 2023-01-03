@@ -248,19 +248,29 @@ queryReserv.addEventListener("click", (event) => {
 - [statistics](/src/main/resources/META-INF/resources/jsp/prod/statistics.jsp)  
 - [survey](/src/main/resources/META-INF/resources/jsp/prod/survey.jsp)  
 
+### js  
+- [survey](/src/main/resources/META-INF/resources/js/survey.js)    
 
 ### [Admin Page]  
 
 ### Survlets 
-- [index](/docs/refactoring/index.html)  
-- [signup](/docs/refactoring/signup.html)  
-- [login](/docs/refactoring/login.html)  
-- [find_id_pw](/docs/refactoring/forget_id_pw.html)  
-- [review](/docs/refactoring/statistics.html)  
-- [survey](/docs/refactoring/survey.html)  
+- [AdminMain](/src/main/java/com/hotel/survey/hotelsurvey/survlets/admins/AdminMain.javaa)  
+- [AdminLogin](/src/main/java/com/hotel/survey/hotelsurvey/survlets/admins/AdminLogin.java)  
+- [AdminPage](/src/main/java/com/hotel/survey/hotelsurvey/survlets/admins/AdminPage.java)  
+- [AttemptLogin](/src/main/java/com/hotel/survey/hotelsurvey/survlets/admins/AttemptLogin.java)  
+- [AttemptLogout](/src/main/java/com/hotel/survey/hotelsurvey/survlets/admins/AttemptLogout.java)  
+- [Member](/src/main/java/com/hotel/survey/hotelsurvey/survlets/admins/Member.java)  
+- [Reservation](/src/main/java/com/hotel/survey/hotelsurvey/survlets/admins/Reservation.java)  
+- [Survey](/src/main/java/com/hotel/survey/hotelsurvey/survlets/admins/Survey.java)  
 
-### CSS
-- [index](/docs/css/index.css)  
+
+### jsp
+- [adminheader](/src/main/resources/META-INF/resources/jsp/admin/adminheader.jsp)  
+- [adminheader](/src/main/resources/META-INF/resources/jsp/admin/login.jsp)  
+- [adminheader](/src/main/resources/META-INF/resources/jsp/admin/main.jsp)  
+- [adminheader](/src/main/resources/META-INF/resources/jsp/admin/member.jsp)  
+- [adminheader](/src/main/resources/META-INF/resources/jsp/admin/reservation.jsp)  
+- [adminheader](/src/main/resources/META-INF/resources/jsp/admin/survey.jsp)  
 -----------------------
 ### 🤖 프로젝트 성격 (동기)  
 해당 프로젝트는 1차 콘솔 구현, 2차 프론트 구현했던 주제로 이를 거쳐 3차로 jsp, Survlet, sql을 중심으로 더해 기능 구현을 추가한 프로젝트입니다.  
