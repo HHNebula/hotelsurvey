@@ -101,12 +101,12 @@ UserPage & AdminPage 구현 테스트 및 동영상 촬영
 
 
 ### [User Page]
-- [Home (메인 홈화면 이미지)](./docs/refactoring/img/home.png)
-- [Signup (회원가입 화면 이미지)](./docs/refactoring/img/signup.png)
-- [Log in (로그인 화면 이미지)](./docs/refactoring/img/login.png)
-- [Find_id_pw (ID/PW 찾기 화면 이미지)](./docs/refactoring/img/forgetidpw.png)
-- [Survey (설문지 작성 화면 이미지)](./docs/refactoring/img/survey.png)
-- [Review (설문지 통계 화면 이미지)](./docs/refactoring/img/stisfaction.png)
+- [Home (메인 홈화면 이미지)](./docs/img/user_home.png)
+- [Signup (회원가입 화면 이미지)](./docs/img/user_signup.png.png)
+- [Log in (로그인 화면 이미지)](./docs/img/user_login.png)
+- [Find_id_pw (ID/PW 찾기 화면 이미지)](./docs/img/user_forget-id-pw.png)
+- [Survey (설문지 작성 화면 이미지)](./docs/img/user_surveyServlets.png)
+- [Review (설문지 통계 화면 이미지)](./docs/img/user_statisticsServlets.png)
 
 
 ### [Admin Page]
